@@ -61,7 +61,10 @@ dependencies:
     path: ./modules/app_state_notifier
   resend_pin_button:
     path: ./modules/resend_pin_button
-    
+  extensions:
+    path: ./modules/extensions
+  
+
   cupertino_icons: ^1.0.2
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1

@@ -26,18 +26,10 @@ class ScheduleWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
         vertical: 10,
       ),
-      decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(
+      decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(
             Radius.circular(15),
           ),
-          color: Theme.of(context).brightness == Brightness.dark ? UIConstant.bgDark : UIConstant.bgWhite,
-          boxShadow: [
-            if(Theme.of(context).brightness == Brightness.light)BoxShadow(
-              color:Colors.grey.shade300,
-              spreadRadius: 1,
-              blurRadius: 3,
-            ),
-          ]
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -45,7 +37,6 @@ class ScheduleWidget extends StatelessWidget {
         children: [
           Text(
             scheduleName.toString(),
-            style: UIConstant.minititle,
           ),
           const SizedBox(
             height: 3,
@@ -60,16 +51,9 @@ class ScheduleWidget extends StatelessWidget {
                 children: [
                   Text(
                     DateFormat("dd, MMM").format(scheduleId),
-                    style: UIConstant.title.copyWith(
-                      fontWeight: FontWeight.normal,
-                      color: UIConstant.orange,
-                    ),
                   ),
                   Text(
                     DateFormat("E").format(scheduleId),
-                    style: UIConstant.minititle.copyWith(
-                      fontWeight: FontWeight.normal,
-                    ),
                   ),
                 ],
               ),
@@ -78,19 +62,16 @@ class ScheduleWidget extends StatelessWidget {
                   Center(
                     child: Text(
                       startSchedule,
-                      style: UIConstant.minititle,
                     ),
                   ),
-                  Center(
+                  const Center(
                     child: Text(
                       "~",
-                      style: UIConstant.title,
                     ),
                   ),
                   Center(
                     child: Text(
                       endSchedule,
-                      style: UIConstant.minititle,
                     ),
                   ),
                 ],

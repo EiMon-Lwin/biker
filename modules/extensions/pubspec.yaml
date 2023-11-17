@@ -1,5 +1,5 @@
-name: ui_kit
-description:
+name: extensions
+description: A sample command-line application.
 version: 1.0.0
 publish_to: none
 
@@ -9,8 +9,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  extensions:
-    path: ../extensions
+  intl: ^0.18.1
+  domain:
+    path: ../domain
+  data:
+    path: ../data
 
 dev_dependencies:
   flutter_test:

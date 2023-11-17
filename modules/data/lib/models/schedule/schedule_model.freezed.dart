@@ -21,8 +21,8 @@ ScheduleModel _$ScheduleModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ScheduleModel {
   String get scheduleDetailId => throw _privateConstructorUsedError;
-  DateTime? get scheduleId => throw _privateConstructorUsedError;
-  String? get scheduleName => throw _privateConstructorUsedError;
+  DateTime get scheduleId => throw _privateConstructorUsedError;
+  String get scheduleName => throw _privateConstructorUsedError;
   TimeSpanModel get startSchedule => throw _privateConstructorUsedError;
   TimeSpanModel get endSchedule => throw _privateConstructorUsedError;
 
@@ -40,8 +40,8 @@ abstract class $ScheduleModelCopyWith<$Res> {
   @useResult
   $Res call(
       {String scheduleDetailId,
-      DateTime? scheduleId,
-      String? scheduleName,
+      DateTime scheduleId,
+      String scheduleName,
       TimeSpanModel startSchedule,
       TimeSpanModel endSchedule});
 
@@ -63,8 +63,8 @@ class _$ScheduleModelCopyWithImpl<$Res, $Val extends ScheduleModel>
   @override
   $Res call({
     Object? scheduleDetailId = null,
-    Object? scheduleId = freezed,
-    Object? scheduleName = freezed,
+    Object? scheduleId = null,
+    Object? scheduleName = null,
     Object? startSchedule = null,
     Object? endSchedule = null,
   }) {
@@ -73,14 +73,14 @@ class _$ScheduleModelCopyWithImpl<$Res, $Val extends ScheduleModel>
           ? _value.scheduleDetailId
           : scheduleDetailId // ignore: cast_nullable_to_non_nullable
               as String,
-      scheduleId: freezed == scheduleId
+      scheduleId: null == scheduleId
           ? _value.scheduleId
           : scheduleId // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      scheduleName: freezed == scheduleName
+              as DateTime,
+      scheduleName: null == scheduleName
           ? _value.scheduleName
           : scheduleName // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       startSchedule: null == startSchedule
           ? _value.startSchedule
           : startSchedule // ignore: cast_nullable_to_non_nullable
@@ -110,17 +110,17 @@ class _$ScheduleModelCopyWithImpl<$Res, $Val extends ScheduleModel>
 }
 
 /// @nodoc
-abstract class _$$ScheduleModelImplCopyWith<$Res>
+abstract class _$$_ScheduleModelCopyWith<$Res>
     implements $ScheduleModelCopyWith<$Res> {
-  factory _$$ScheduleModelImplCopyWith(
-          _$ScheduleModelImpl value, $Res Function(_$ScheduleModelImpl) then) =
-      __$$ScheduleModelImplCopyWithImpl<$Res>;
+  factory _$$_ScheduleModelCopyWith(
+          _$_ScheduleModel value, $Res Function(_$_ScheduleModel) then) =
+      __$$_ScheduleModelCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {String scheduleDetailId,
-      DateTime? scheduleId,
-      String? scheduleName,
+      DateTime scheduleId,
+      String scheduleName,
       TimeSpanModel startSchedule,
       TimeSpanModel endSchedule});
 
@@ -131,35 +131,35 @@ abstract class _$$ScheduleModelImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ScheduleModelImplCopyWithImpl<$Res>
-    extends _$ScheduleModelCopyWithImpl<$Res, _$ScheduleModelImpl>
-    implements _$$ScheduleModelImplCopyWith<$Res> {
-  __$$ScheduleModelImplCopyWithImpl(
-      _$ScheduleModelImpl _value, $Res Function(_$ScheduleModelImpl) _then)
+class __$$_ScheduleModelCopyWithImpl<$Res>
+    extends _$ScheduleModelCopyWithImpl<$Res, _$_ScheduleModel>
+    implements _$$_ScheduleModelCopyWith<$Res> {
+  __$$_ScheduleModelCopyWithImpl(
+      _$_ScheduleModel _value, $Res Function(_$_ScheduleModel) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? scheduleDetailId = null,
-    Object? scheduleId = freezed,
-    Object? scheduleName = freezed,
+    Object? scheduleId = null,
+    Object? scheduleName = null,
     Object? startSchedule = null,
     Object? endSchedule = null,
   }) {
-    return _then(_$ScheduleModelImpl(
+    return _then(_$_ScheduleModel(
       scheduleDetailId: null == scheduleDetailId
           ? _value.scheduleDetailId
           : scheduleDetailId // ignore: cast_nullable_to_non_nullable
               as String,
-      scheduleId: freezed == scheduleId
+      scheduleId: null == scheduleId
           ? _value.scheduleId
           : scheduleId // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      scheduleName: freezed == scheduleName
+              as DateTime,
+      scheduleName: null == scheduleName
           ? _value.scheduleName
           : scheduleName // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       startSchedule: null == startSchedule
           ? _value.startSchedule
           : startSchedule // ignore: cast_nullable_to_non_nullable
@@ -174,23 +174,23 @@ class __$$ScheduleModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ScheduleModelImpl implements _ScheduleModel {
-  _$ScheduleModelImpl(
+class _$_ScheduleModel implements _ScheduleModel {
+  _$_ScheduleModel(
       {required this.scheduleDetailId,
-      this.scheduleId,
-      this.scheduleName,
+      required this.scheduleId,
+      required this.scheduleName,
       required this.startSchedule,
       required this.endSchedule});
 
-  factory _$ScheduleModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ScheduleModelImplFromJson(json);
+  factory _$_ScheduleModel.fromJson(Map<String, dynamic> json) =>
+      _$$_ScheduleModelFromJson(json);
 
   @override
   final String scheduleDetailId;
   @override
-  final DateTime? scheduleId;
+  final DateTime scheduleId;
   @override
-  final String? scheduleName;
+  final String scheduleName;
   @override
   final TimeSpanModel startSchedule;
   @override
@@ -205,7 +205,7 @@ class _$ScheduleModelImpl implements _ScheduleModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ScheduleModelImpl &&
+            other is _$_ScheduleModel &&
             (identical(other.scheduleDetailId, scheduleDetailId) ||
                 other.scheduleDetailId == scheduleDetailId) &&
             (identical(other.scheduleId, scheduleId) ||
@@ -226,12 +226,12 @@ class _$ScheduleModelImpl implements _ScheduleModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ScheduleModelImplCopyWith<_$ScheduleModelImpl> get copyWith =>
-      __$$ScheduleModelImplCopyWithImpl<_$ScheduleModelImpl>(this, _$identity);
+  _$$_ScheduleModelCopyWith<_$_ScheduleModel> get copyWith =>
+      __$$_ScheduleModelCopyWithImpl<_$_ScheduleModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ScheduleModelImplToJson(
+    return _$$_ScheduleModelToJson(
       this,
     );
   }
@@ -240,26 +240,26 @@ class _$ScheduleModelImpl implements _ScheduleModel {
 abstract class _ScheduleModel implements ScheduleModel {
   factory _ScheduleModel(
       {required final String scheduleDetailId,
-      final DateTime? scheduleId,
-      final String? scheduleName,
+      required final DateTime scheduleId,
+      required final String scheduleName,
       required final TimeSpanModel startSchedule,
-      required final TimeSpanModel endSchedule}) = _$ScheduleModelImpl;
+      required final TimeSpanModel endSchedule}) = _$_ScheduleModel;
 
   factory _ScheduleModel.fromJson(Map<String, dynamic> json) =
-      _$ScheduleModelImpl.fromJson;
+      _$_ScheduleModel.fromJson;
 
   @override
   String get scheduleDetailId;
   @override
-  DateTime? get scheduleId;
+  DateTime get scheduleId;
   @override
-  String? get scheduleName;
+  String get scheduleName;
   @override
   TimeSpanModel get startSchedule;
   @override
   TimeSpanModel get endSchedule;
   @override
   @JsonKey(ignore: true)
-  _$$ScheduleModelImplCopyWith<_$ScheduleModelImpl> get copyWith =>
+  _$$_ScheduleModelCopyWith<_$_ScheduleModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
