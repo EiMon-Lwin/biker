@@ -1,0 +1,9 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#1B330E",
+        "titleBar.activeBackground": "#264814",
+        "titleBar.activeForeground": "#F6FCF3"
+    },
+    "cmake.configureOnOpen": false,
+    "cmake.sourceDirectory": "/home/roman/Desktop/EF/biker/linux"
+}

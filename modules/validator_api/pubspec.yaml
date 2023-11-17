@@ -1,0 +1,17 @@
+name: validator_api
+description:
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.1.0
+
+dependencies:
+  mm_phone_number_validator:
+    path: ../mm_phone_number_validator
+  resource_strings:
+    path: ../resource_strings
+
+dev_dependencies:
+  lints: ^2.0.0
+  test: ^1.21.0

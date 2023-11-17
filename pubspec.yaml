@@ -1,0 +1,118 @@
+name: biker
+description: A new Flutter project.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.1.3 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  core:
+    path: ./modules/core
+  domain:
+    path: ./modules/domain
+  dialog_api:
+    path: ./modules/dialog_api
+  formatter_api:
+    path: ./modules/formatter_api
+  authentication:
+    path: ./modules/authentication
+  biker_info:
+    path: ./modules/biker_info
+  geo_locator:
+    path: ./modules/geo_locator
+  geo_locator_api:
+    path: ./modules/geo_locator_api
+  local_storage:
+    path: ./modules/local_storage
+  localization_api:
+    path: ./modules/localization_api
+  notification:
+    path: ./modules/notification
+  order:
+    path: ./modules/order
+  resource_strings:
+    path: ./modules/resource_strings
+  schedule:
+    path: ./modules/schedule
+  secure_local_storage:
+    path: ./modules/secure_local_storage
+  service_locator:
+    path: ./modules/service_locator
+  shared_dependencies:
+    path: ./modules/shared_dependencies
+  sms:
+    path: ./modules/sms
+  env_jar:
+    path: ./modules/env_jar
+  token_jar:
+    path: ./modules/token_jar
+  ui_kit:
+    path: ./modules/ui_kit
+  validator_api:
+    path: ./modules/validator_api
+  mm_phone_number_validator:
+    path: ./modules/mm_phone_number_validator
+  app_state_notifier:
+    path: ./modules/app_state_notifier
+  resend_pin_button:
+    path: ./modules/resend_pin_button
+    
+  cupertino_icons: ^1.0.2
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.8.1
+  dio: ^5.3.3
+  get: ^4.6.6
+  easy_localization: ^3.0.3
+  flutter_svg: ^2.0.9
+  shared_preferences: ^2.2.2
+  collection: ^1.17.2
+  flutter_html: ^3.0.0-beta.2
+  url_launcher: ^6.2.1
+  get_storage: ^2.1.1
+  pinput: ^3.0.1
+  lottie: ^2.7.0
+  colorize: ^3.0.0
+  loading_animation_widget: ^1.2.0+4
+  intl: ^0.18.1
+  geolocator: ^10.1.0
+  permission_handler: ^11.0.1
+  go_router: ^12.0.1
+  pretty_dio_logger: ^1.3.1
+  http: ^0.13.3
+  modal_bottom_sheet: ^2.1.2
+  virtual_keyboard_multi_language: ^1.0.3
+  animate_do: ^3.1.2
+  audioplayers: ^5.2.0
+  image_picker: ^1.0.4
+  signalr_netcore: ^1.3.3
+  file_picker: ^6.1.1
+  firebase_messaging: ^14.7.3
+  bloc: ^8.1.2
+  get_it: ^7.6.4
+  flutter_secure_storage: ^9.0.0
+  flutter_bloc: ^8.1.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+  freezed: ^2.4.5
+  json_serializable: ^6.7.1
+  build_runner: ^2.4.6
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/translations/
+    - assets/lotties/
+    - assets/images/
+    - assets/images/permission/
+    - assets/call/
+    - assets/images/payments/
+    - assets/audiofiles/

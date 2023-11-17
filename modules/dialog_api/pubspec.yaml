@@ -1,0 +1,25 @@
+name: dialog_api
+description:
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.1.0
+
+dependencies:
+  colorize: ^3.0.0
+  flutter:
+    sdk: flutter
+  localization_api:
+    path: ../localization_api
+  lottie: ^2.7.0
+  resource_strings:
+    path: ../resource_strings
+  ui_kit:
+    path: ../ui_kit
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0

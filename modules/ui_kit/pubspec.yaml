@@ -1,0 +1,17 @@
+name: ui_kit
+description:
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.1.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0

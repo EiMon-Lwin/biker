@@ -1,0 +1,29 @@
+name: localization_api
+description:
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.1.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  core:
+    path: ../core
+  local_storage:
+    path: ../local_storage
+  utils:
+    path: ../utils
+  easy_localization: ^3.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/translations/
+    - assets/flags/
