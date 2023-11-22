@@ -1,3 +1,4 @@
+import 'package:app_state/app_state.dart';
 import 'package:app_state_notifier/app_state_notifier.dart';
 import 'package:authentication/authentication.dart';
 import 'package:biker/app/data_module.dart';
@@ -22,6 +23,8 @@ abstract class AppModules  extends ServiceLocatorMixin {
   ) : super(serviceLocator);
 
   AuthenticationBloc provideAuthenticationBloc();
+
+  AppStateBloc provideAppStateBloc();
 
   BikerInfoBloc provideBikerInfoBloc();
 

@@ -3,6 +3,7 @@ import 'package:biker/src/constant/constant.dart';
 import 'package:biker/src/presentation/authentication/sign_in/bloc/sign_in_bloc.dart';
 import 'package:biker/src/presentation/presentation.dart';
 import 'package:core/core.dart';
+import 'package:dialog_api/dialog_api.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,8 +15,6 @@ import 'package:resend_pin_button/bloc/resend_pin_button_bloc.dart';
 import 'package:resend_pin_button/resend_pin_button.dart';
 import 'package:resource_strings/resource_strings.dart';
 import 'package:sms/application/bloc/sms_bloc.dart';
-
-import '../../../commons/widgets/widgets.dart';
 
 class PasscodePage extends StatefulWidget {
   final String phoneNumber;
@@ -41,6 +40,7 @@ class _PasscodePageState extends State<PasscodePage> {
   late final ResendPinButtonBloc resendPinButtonBloc;
   late final localizationApi = inject<LocalizationApi>();
   late final resourceStrings = inject<ResourceStrings>();
+  late final dialogApi = inject<DialogApi>();
 
   @override
   void initState() {
@@ -184,7 +184,7 @@ class _PasscodePageState extends State<PasscodePage> {
                   ),
                 ),
               ),
-              if(state is SignInSigningIn)
+              if (state is SignInSigningIn)
                 const Positioned.fill(child: LoadingOverlay())
             ],
           ),
@@ -193,28 +193,15 @@ class _PasscodePageState extends State<PasscodePage> {
     );
   }
 
-  // void _verifyPinCode(String value) {
-  //   _controller.verifyPinCode(
-  //     value: value,
-  //     showWrongPinAlert: _showWrongPinAlert,
-  //   );
-  // }
+  Future<void> _showWrongPinAlert() async {
+    dialogApi.showSnackBar(
+      message: localizationApi.tr(resourceStrings.lblPinDoesntMatch),
+    );
+  }
 
-  // Future<void> _showWrongPinAlert() async {
-  //   await Get.find<DialogApi>().showDialog(
-  //     titleLabel: tr(LocaleKeys.lblPinDoesntMatch),
-  //     descriptionLabel: "Pin code you've entered doesn't match.",
-  //   );
-  // }
-
-  // Future<void> _showSignInFailedAlert() async {
-  //   await Get.find<DialogApi>().showDialog(
-  //     titleLabel: tr(LocaleKeys.lblCantSignIn),
-  //     descriptionLabel: tr(LocaleKeys.lblSomethingWentWrong),
-  //   );
-  // }
-
-  Future<void> _showWrongPinAlert() async {}
-
-  Future<void> _showSignInFailedAlert() async {}
+  Future<void> _showSignInFailedAlert() async {
+    dialogApi.showDialog(
+      titleLabel: localizationApi.tr(resourceStrings.lblCantSignIn),
+    );
+  }
 }

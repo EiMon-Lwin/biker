@@ -13,6 +13,8 @@ dependencies:
     path: ../domain
   data:
     path: ../data
+  token_jar:
+    path: ../token_jar
 
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1

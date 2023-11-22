@@ -1,11 +1,8 @@
 import 'package:biker/src/presentation/schedule/widgets/schedule_widget.dart';
 import 'package:biker/src/utils/context_extension.dart';
-import 'package:core/core.dart';
 import 'package:domain/domain.dart';
 import 'package:extensions/time_model_ext.dart';
 import 'package:flutter/material.dart';
-import 'package:localization_api/localization_api.dart';
-import 'package:resource_strings/resource_strings.dart';
 
 class ScheduleItems extends StatelessWidget {
   final String title;

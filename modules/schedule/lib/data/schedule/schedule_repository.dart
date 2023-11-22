@@ -13,15 +13,23 @@ class ScheduleRepositoryImplementation implements ScheduleRepository {
 
   @override
   Future<DataState<List<ScheduleEntity>>> getAvailableSchedules() async {
-    const path = 'schedules/available';
+    const path = 'schedules/avaliable';
 
     try {
-      final res = await client.post<Map<String, dynamic>>(
+      final token = await tokenJar.get();
+      final res = await client.get<Map<String, dynamic>>(
         path,
         options: Options(headers: {
-          'Authorization': 'Bearer ${tokenJar}',
+          'Authorization': 'Bearer ${token.data?.accessToken}',
         }),
       );
+
+      if (res.statusCode! > 299 || res.statusCode! < 200) {
+        throw HttpStatusException(
+          statusCode: res.statusCode!,
+          message: res.statusMessage,
+        );
+      }
 
       final value = (res.data!["data"] as List)
           .map((e) => ScheduleModel.fromJson(e as Map<String, dynamic>))
@@ -37,12 +45,20 @@ class ScheduleRepositoryImplementation implements ScheduleRepository {
     const path = 'schedules/next-schedule';
 
     try {
-      final res = await client.post<Map<String, dynamic>>(
+      final token = await tokenJar.get();
+      final res = await client.get<Map<String, dynamic>>(
         path,
         options: Options(headers: {
-          'Authorization': 'Bearer ${tokenJar}',
+          'Authorization': 'Bearer ${token.data?.accessToken}',
         }),
       );
+
+      if (res.statusCode! > 299 || res.statusCode! < 200) {
+        throw HttpStatusException(
+          statusCode: res.statusCode!,
+          message: res.statusMessage,
+        );
+      }
 
       final value = (res.data!["data"] as List)
           .map((e) => ScheduleModel.fromJson(e as Map<String, dynamic>))

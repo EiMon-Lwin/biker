@@ -17,6 +17,8 @@ dependencies:
     path: ../geo_locator
   biker_info:
     path: ../biker_info
+  app_state:
+    path: ../app_state
     
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1

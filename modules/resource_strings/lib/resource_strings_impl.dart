@@ -416,4 +416,16 @@ class ResourceStringsImpl implements ResourceStrings {
   String get lblFailedToSendSms => LocaleKeys.lblFailedToSendSms;
   String get lblNextSchedules => LocaleKeys.lblNextSchedules;
   String get lblAvailableSchedules => LocaleKeys.lblAvailableSchedules;
+  String get lblUserCheckIn => LocaleKeys.lblUserCheckIn;
+  String get lblUserCheckOut => LocaleKeys.lblUserCheckOut;
+  String get lblCheckInFail => LocaleKeys.lblCheckInFail;
+  String get lblCheckInSuccessful => LocaleKeys.lblCheckInSuccessful;
+  String get lblCheckOutFail => LocaleKeys.lblCheckOutFail;
+  String get lblCheckOutSuccessful => LocaleKeys.lblCheckOutSuccessful;
+  String get lblNoAvailableSchedules => LocaleKeys.lblNoAvailableSchedules;
+  String get lblCheckIn => LocaleKeys.lblCheckIn;
+  String get lblSchedule => LocaleKeys.lblSchedule;
+  String get lblNoCheckInSchedule => LocaleKeys.lblNoCheckInSchedule;
+  String get lblThereIsNoOrders => LocaleKeys.lblThereIsNoOrders;
+
 }

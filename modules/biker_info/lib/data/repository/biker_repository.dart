@@ -16,13 +16,49 @@ class BikerInfoRepositoryImpl implements BikerInfoRepository {
 
     try {
       final accessToken = (await tokenJar.get()).data?.accessToken;
-      final res = await client.get<Map<String, dynamic>>(
-        path,
-        options: Options(headers: {"Authorization": "Bearer $accessToken"})
-      );
+      final res = await client.get<Map<String, dynamic>>(path,
+          options: Options(headers: {"Authorization": "Bearer $accessToken"}));
+
+      if (res.statusCode! > 299 || res.statusCode! < 200) {
+        throw HttpStatusException(
+          statusCode: res.statusCode!,
+          message: res.statusMessage,
+        );
+      }
 
       try {
         return DataSuccess(BikerInfoModel.fromJson(res.data!["data"]));
+      } on Exception catch (e) {
+        throw SerializationException(e);
+      }
+    } on Exception catch (e) {
+      return DataFailed(e);
+    }
+  }
+
+  @override
+  Future<DataState<bool>> scheduleCheckOut(DateTime scheduleDate) async {
+    final path = "schedules/check-out";
+
+    try {
+      final accessToken = (await tokenJar.get()).data?.accessToken;
+      final res = await client.get<Map<String, dynamic>>(
+        path,
+        options: Options(headers: {"Authorization": "Bearer $accessToken"}),
+        queryParameters: {
+          "scheduledate": "${scheduleDate.toIso8601String()}",
+        },
+      );
+
+      if (res.statusCode! > 299 || res.statusCode! < 200) {
+        throw HttpStatusException(
+          statusCode: res.statusCode!,
+          message: res.statusMessage,
+        );
+      }
+
+      try {
+        return DataSuccess(res.data!["data"]["success"] == true);
       } on Exception catch (e) {
         throw SerializationException(e);
       }

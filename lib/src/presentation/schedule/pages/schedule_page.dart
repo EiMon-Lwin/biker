@@ -1,31 +1,56 @@
+import 'package:biker/src/presentation/schedule/body/empty.dart';
+import 'package:biker/src/presentation/schedule/body/error.dart';
+import 'package:biker/src/presentation/schedule/body/ready.dart';
+import 'package:biker/src/utils/context_extension.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:localization_api/localization_api.dart';
+import 'package:resource_strings/resource_strings.dart';
 import 'package:schedule/application/bloc/schedule_bloc.dart';
 
-class SchedulesPage extends StatefulWidget {
+import '../body/loading.dart';
+
+class SchedulesPage extends StatelessWidget {
   const SchedulesPage({super.key});
 
   @override
-  State<SchedulesPage> createState() => _SchedulesPageState();
-}
-
-class _SchedulesPageState extends State<SchedulesPage> {
-  final bloc = inject<ScheduleBloc>();
-
-  @override
-  void initState() {
-    bloc.add(const LoadAllSchedulesEvent());
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ScheduleBloc, ScheduleState>(
-      bloc: bloc,
-      builder: (context, state) {
-        return Container();
-      },
+    final bloc = inject<ScheduleBloc>();
+    final localeApi = inject<LocalizationApi>();
+    final resourceStrings = inject<ResourceStrings>();
+
+    bloc.add(const LoadAllSchedulesEvent());
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          localeApi.tr(resourceStrings.lblNextSchedules),
+          style: context.theme.textTheme.titleLarge,
+        ),
+        BlocBuilder<ScheduleBloc, ScheduleState>(
+          bloc: bloc,
+          builder: (context, state) {
+            if (state is ScheduleStateReady) {
+              if (state.nextSchedules.isEmpty) {
+                return const SchedulePageEmpty();
+              }
+              return SchedulePageReady(
+                currentSchedules: state.currentSchedules,
+                nextSchedules: state.nextSchedules,
+              );
+            }
+            if (state is ScheduleStateInitial) {
+              return const SchedulePageLoading();
+            }
+            return SchedulePageError(
+              onReloadPressed: () => bloc.add(const LoadAllSchedulesEvent()),
+            );
+          },
+        ),
+      ],
     );
   }
 }

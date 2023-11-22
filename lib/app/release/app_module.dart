@@ -1,3 +1,4 @@
+import 'package:app_state/application/bloc/app_state_bloc.dart';
 import 'package:authentication/application/bloc/authentication_bloc.dart';
 import 'package:biker/src/config/router/router.dart';
 import 'package:app_state_notifier/app_state_notifier.dart';
@@ -51,6 +52,7 @@ class AppModulesRelease extends AppModules {
   @override
   AppStateNotifier provideAppState() {
     return registerAsSingleton(() => AppStateNotifier(
+      provideAppStateBloc(),
       provideBikerInfoBloc(),
       provideGeoLocatorBloc(),
     ));
@@ -60,6 +62,16 @@ class AppModulesRelease extends AppModules {
   ScheduleBloc provideScheduleBloc() {
     return registerAsSingleton(() => ScheduleBloc(
       dataModules.provideScheduleRepository(),
+    ));
+  }
+
+  @override
+  AppStateBloc provideAppStateBloc() {
+    return registerAsSingleton(() => AppStateBloc(
+      provideAuthenticationBloc(),
+      provideBikerInfoBloc(),
+      provideGeoLocatorBloc(),
+      dataModules.provideTokenJar(),
     ));
   }
 }

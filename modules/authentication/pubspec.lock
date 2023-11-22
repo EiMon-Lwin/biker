@@ -637,6 +637,13 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
+  service_locator:
+    dependency: transitive
+    description:
+      path: "../service_locator"
+      relative: true
+    source: path
+    version: "1.0.0"
   shared_preferences:
     dependency: transitive
     description:

@@ -31,39 +31,37 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
     LoadOrdersEvent event,
     Emitter<OrderState> emit,
   ) async {
-    final result = await repository.getCurrentOrders(
+    await repository.getCurrentOrders(
       userId: event.userId,
       pageSize: event.pageSize,
       pageRow: event.pageRows,
-    );
-
-    if (result is DataSuccess<List<CheckOutOrderEntity>>) {
-      if (state is OrderReady) {
-        emit((state as OrderReady).copyWith(
-          currentOrders: result.data,
-        ));
-      } else {
-        emit(OrderReady(
-          currentOrders: result.data ?? [],
-          pastOrders: [],
-          userId: event.userId,
-        ));
-      }
-    } else {
-      result as DataFailed<List<CheckOutOrderEntity>>;
-      result.error is SocketException
-          ? emit(OrderPageNetworkError())
-          : emit(OrderPageError());
-    }
+    )
+      ..onError((error) {
+        error is SocketException
+            ? emit(OrderPageNetworkError())
+            : emit(OrderPageError());
+      })
+      ..onSuccess((data) {
+        if (state is OrderPageReady) {
+          emit((state as OrderPageReady).copyWith(
+            currentOrders: data,
+          ));
+        } else {
+          emit(OrderPageReady(
+            currentOrders: data,
+            pastOrders: [],
+            userId: event.userId,
+          ));
+        }
+      });
   }
 
   FutureOr<void> _onConfirmOrderEvent(
     ConfirmOrderEvent event,
     Emitter<OrderState> emit,
   ) async {
-    final userId = state is OrderReady
-        ? (state as OrderReady).userId
-        : null;
+    final userId =
+        state is OrderPageReady ? (state as OrderPageReady).userId : null;
     if (userId == null) return;
 
     final orderDetailsData = await repository.getOrder(

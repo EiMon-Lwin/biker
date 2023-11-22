@@ -11,23 +11,23 @@ final class OrderPageError implements OrderState {}
 
 final class OrderPageNetworkError implements OrderState {}
 
-final class OrderReady extends Equatable implements OrderState  {
+final class OrderPageReady extends Equatable implements OrderState  {
   final List<CheckOutOrderEntity> currentOrders;
   final List<CheckOutOrderEntity> pastOrders;
   final String userId;
 
-  OrderReady({
+  OrderPageReady({
     this.currentOrders = const [],
     this.pastOrders = const [],
     required this.userId,
   });
 
-  OrderReady copyWith({
+  OrderPageReady copyWith({
     final List<CheckOutOrderEntity>? currentOrders,
     final List<CheckOutOrderEntity>? pastOrders,
     final String? userId,
   }) {
-    return OrderReady(
+    return OrderPageReady(
       currentOrders: currentOrders ?? this.currentOrders,
       pastOrders: pastOrders ?? this.pastOrders,
       userId: userId ?? this.userId,

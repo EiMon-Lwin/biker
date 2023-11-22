@@ -1,14 +1,16 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:core/core.dart';
+import 'package:token_jar/token_jar.dart';
 
 import '../../domain/domain.dart';
 import '../../data/data.dart';
 
 class OrderRepositoryImpl implements OrderRepository {
   final Dio client;
+  final TokenJar tokenJar;
 
-  const OrderRepositoryImpl(this.client);
+  const OrderRepositoryImpl(this.client, this.tokenJar);
 
   @override
   Future<DataState<CheckOutOrderModel>> getOrder(String orderId) async {
@@ -39,6 +41,7 @@ class OrderRepositoryImpl implements OrderRepository {
     const path = 'order/current-orders';
 
     try {
+      final token = await tokenJar.get();
       final res = await client.get<Map<String, dynamic>>(
         path,
         queryParameters: {
@@ -46,6 +49,9 @@ class OrderRepositoryImpl implements OrderRepository {
           "pageSize": "$pageSize",
           "pageRows": "$pageRow",
         },
+        options: Options(headers: {
+          'Authorization': 'Bearer ${token.data?.accessToken}',
+        }),
       );
 
       if (res.statusCode != 200) {
@@ -77,6 +83,7 @@ class OrderRepositoryImpl implements OrderRepository {
     const path = 'order/previous-orders';
 
     try {
+      final token = await tokenJar.get();
       final res = await client.post<Map<String, dynamic>>(
         path,
         queryParameters: {
@@ -84,6 +91,9 @@ class OrderRepositoryImpl implements OrderRepository {
           "sdate": startDate.toIso8601String(),
           "edate": endDate.toIso8601String(),
         },
+        options: Options(headers: {
+          'Authorization': 'Bearer ${token.data?.accessToken}',
+        }),
       );
 
       if (res.statusCode != 200) {
@@ -94,9 +104,10 @@ class OrderRepositoryImpl implements OrderRepository {
       }
 
       try {
-        // final value = AuthenticatedUserModel.fromJson(res.data!["data"]);
-        // return DataSuccess(value);
-        return DataSuccess([]);
+        final value = (res.data?['data'] as List)
+            .map((e) => CheckOutOrderModel.fromJson(e as Map<String, dynamic>))
+            .toList();
+        return DataSuccess(value);
       } on Exception catch (e) {
         return DataFailed(SerializationException(e));
       }

@@ -24,4 +24,5 @@ class TimeSpanVO {
     required this.totalMinutes,
     required this.totalSeconds,
   });
+
 }

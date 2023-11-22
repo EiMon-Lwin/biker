@@ -1,0 +1,12 @@
+name: quick_food_mobile
+
+packages:
+  - ./*
+  - ./**
+
+scripts:
+  analyze:
+    exec: dart analyze .
+
+  pub_get:
+    exec: dart pub get

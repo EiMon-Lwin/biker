@@ -9,6 +9,7 @@ import 'package:geo_locator_api/geo_locator_api.dart';
 import 'package:local_storage/local_storage.dart';
 import 'package:localization_api/localization_api.dart';
 import 'package:mm_phone_number_validator/mm_phone_number_validator.dart';
+import 'package:network_client/network_client.dart';
 import 'package:notification/notification.dart';
 import 'package:formatter_api/formatter_api.dart';
 import 'package:order/order.dart';
@@ -31,6 +32,9 @@ abstract class DataModules extends ServiceLocatorMixin {
   final DependencyConfigurationContext configContext;
   final GlobalKey<NavigatorState> rootNavigationKey;
   final GlobalKey<ScaffoldState> primaryScaffoldKey;
+
+  NetworkClient provideNetworkClient();
+
   Dio provideClient();
 
   DialogApi provideDialogApi();

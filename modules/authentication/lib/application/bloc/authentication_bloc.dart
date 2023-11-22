@@ -11,8 +11,7 @@ import '../../domain/domain.dart';
 part 'authentication_event.dart';
 part 'authentication_state.dart';
 
-class AuthenticationBloc
-    extends Bloc<AuthenticationEvent, AuthenticationState> {
+class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
   final TokenJar tokenStorage;
   final EnvJar envManager;
   final AuthenticationRepository repository;
@@ -46,23 +45,34 @@ class AuthenticationBloc
     RefreshAccessTokenEvent event,
     Emitter<AuthenticationState> emit,
   ) async {
-    final refreshResult = await repository.refreshAccessToken(
-      accessToken: event.accessToken,
-      refreshToken: event.refreshToken,
-    );
+    // final refreshResult = await repository.refreshAccessToken(
+    //   accessToken: event.accessToken,
+    //   refreshToken: event.refreshToken,
+    // );
 
     final userResult = await repository.getSavedAuthenticatedUser();
 
-    if (refreshResult is DataSuccess && userResult is DataSuccess) {
+    if (userResult is DataSuccess) {
       await _onAuthenticated(
         AuthenticatedUserEntity(
           user: userResult.data!.user,
-          accessToken: refreshResult.data!.accessToken,
-          refreshToken: refreshResult.data!.refreshToken,
-          expirationDays: refreshResult.data!.expirationDays,
+          accessToken: event.accessToken,
+          refreshToken: event.refreshToken,
+          expirationDays: 1,
         ),
         emit,
       );
+    // TODO replace above with below line if backend data is fixed
+    // if (refreshResult is DataSuccess && userResult is DataSuccess) {
+    // await _onAuthenticated(
+    //   AuthenticatedUserEntity(
+    //     user: userResult.data!.user,
+    //     accessToken: refreshResult.data!.accessToken,
+    //     refreshToken: refreshResult.data!.refreshToken,
+    //     expirationDays: refreshResult.data!.expirationDays,
+    //   ),
+    //   emit,
+    // );
     } else {
       emit(AuthenticationFailed());
     }

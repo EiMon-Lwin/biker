@@ -1,19 +1,22 @@
+import 'package:app_state/app_state.dart';
 import 'package:biker_info/biker_info.dart';
 import 'package:flutter/foundation.dart';
 import 'package:geo_locator/bloc/geo_locator_bloc.dart';
 
 class AppStateNotifier extends ChangeNotifier {
+  final AppStateBloc appState;
   final BikerInfoBloc bikerInfoBloc;
   final GeoLocatorBloc geoLocatorBloc;
   final bool isDevEnv;
 
   AppStateNotifier(
+    this.appState,
     this.bikerInfoBloc,
     this.geoLocatorBloc, {
     this.isDevEnv = true,
   }) {
     _apiConfigured = isDevEnv ? false : true;
-
+    appState.stream.listen(_onAppStateChanged);
     bikerInfoBloc.stream.listen(_onUserInfoChanged);
     geoLocatorBloc.stream.listen(_onGeoLocationStateChanged);
   }
@@ -66,7 +69,6 @@ class AppStateNotifier extends ChangeNotifier {
   }
 
   void _onUserInfoChanged(BikerInfoState? state) {
-    initialized = state is! BikerInfoInitial;
     final isLoggedIn = state is BikerInfoReady;
     if (isLoggedIn != _loginState || !_loginState) {
       loginState = isLoggedIn;
@@ -76,5 +78,9 @@ class AppStateNotifier extends ChangeNotifier {
   void _onGeoLocationStateChanged(GeoLocatorState state) {
     isLocationTurnOn = state.isLocationTurnOn;
     hasLocationPermission = state.isPermissionEnabled;
+  }
+
+  void _onAppStateChanged(AppStateState event) {
+    initialized = event is AppStateReady;
   }
 }

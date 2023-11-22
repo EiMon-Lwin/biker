@@ -17,6 +17,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.2.0"
+  app_state:
+    dependency: "direct main"
+    description:
+      path: "../app_state"
+      relative: true
+    source: path
+    version: "1.0.0"
   args:
     dependency: transitive
     description:

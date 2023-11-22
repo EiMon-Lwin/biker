@@ -14,5 +14,4 @@ export 'geo_location/geo_location.dart';
 export 'geo_location/pages/gps_permission.dart';
 export 'geo_location/pages/turn_on_location.dart';
 export 'home/home.dart';
-export 'splash_page/pages/splash_page.dart';
 export 'splash_page/splash_page.dart';

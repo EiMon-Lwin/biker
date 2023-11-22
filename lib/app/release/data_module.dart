@@ -18,6 +18,8 @@ import 'package:localization_api/localization_api.dart';
 import 'package:localization_api/localization_api_impl.dart';
 import 'package:mm_phone_number_validator/mm_phone_number_validator.dart';
 import 'package:mm_phone_number_validator/mm_phone_number_validator_impl.dart';
+import 'package:network_client/network_client.dart';
+import 'package:network_client_real_adapter/network_client_real_adapter.dart';
 import 'package:notification/notification.dart';
 import 'package:order/order.dart';
 import 'package:resource_strings/resource_strings.dart';
@@ -40,11 +42,11 @@ class DataModulesRelease extends DataModules {
     DependencyConfigurationContext configContext,
     ServiceLocator serviceLocator,
   ) : super(
-      configContext,
-      rootNavigationKey,
-      primaryScaffoldKey,
-      serviceLocator,
-    );
+          configContext,
+          rootNavigationKey,
+          primaryScaffoldKey,
+          serviceLocator,
+        );
 
   @override
   AuthenticationRepository provideAuthenticationRepository() {
@@ -58,19 +60,19 @@ class DataModulesRelease extends DataModules {
   @override
   BikerInfoRepository provideBikerInfoRepository() {
     return registerAsSingleton(() => BikerInfoRepositoryImpl(
-      provideClient(),
-      provideTokenJar(),
-    ));
+          provideClient(),
+          provideTokenJar(),
+        ));
   }
 
   @override
   DialogApi provideDialogApi() {
     return registerAsSingleton<DialogApi>(() => DialogApiImplementation(
-      provideResourceSrings(),
-      provideLocalizationApi(),
-      rootNavigationKey.currentState?.context,
-      primaryScaffoldKey,
-    ));
+          provideResourceSrings(),
+          provideLocalizationApi(),
+          rootNavigationKey.currentState?.context,
+          primaryScaffoldKey,
+        ));
   }
 
   @override
@@ -85,35 +87,36 @@ class DataModulesRelease extends DataModules {
 
   @override
   LocalStorage provideLocalStorage() {
-    return registerAsSingleton<LocalStorage>(() => LocalStroageImp(
-      serviceLocator<SharedPreferences>()
-    ));
+    return registerAsSingleton<LocalStorage>(
+        () => LocalStroageImp(serviceLocator<SharedPreferences>()));
   }
 
   @override
   LocalizationApi provideLocalizationApi() {
     return registerAsSingleton<LocalizationApi>(() => LocalizationApiImpl(
-      provideLocalStorage(),
-    ));
+          provideLocalStorage(),
+        ));
   }
 
   @override
   MyanmarPhoneNumberValidator provideMyanmarPhoneNumberValidator() {
-    return registerAsSingleton(() => MyanmarPhoneNumberValidatorImplementation());
+    return registerAsSingleton(
+        () => MyanmarPhoneNumberValidatorImplementation());
   }
 
   @override
   NotificationRepository provideNotificationRepository() {
     return registerAsSingleton(() => NotificationRepositoryImpl(
-      provideClient(),
-    ));
+          provideClient(),
+        ));
   }
 
   @override
   OrderRepository provideOrderRepository() {
     return registerAsSingleton(() => OrderRepositoryImpl(
-      provideClient(),
-    ));
+          provideClient(),
+          provideTokenJar(),
+        ));
   }
 
   @override
@@ -123,53 +126,63 @@ class DataModulesRelease extends DataModules {
 
   @override
   ScheduleRepository provideScheduleRepository() {
-    return registerAsSingleton<ScheduleRepository>(() => ScheduleRepositoryImplementation(
-      provideClient(),
-      provideTokenJar(),
-    ));
+    return registerAsSingleton<ScheduleRepository>(
+        () => ScheduleRepositoryImplementation(
+              provideClient(),
+              provideTokenJar(),
+            ));
   }
 
   @override
   SecureLocalStorage provideSecureLocalStroage() {
-    return registerAsSingleton<SecureLocalStorage>(() => const SecureLocalStorageImpl(
-      FlutterSecureStorage()
-    ));
+    return registerAsSingleton<SecureLocalStorage>(
+        () => const SecureLocalStorageImpl(FlutterSecureStorage()));
   }
 
   @override
   SmsRepository provideSmsRepository() {
     return registerAsSingleton<SmsRepository>(() => SmsRepositoryImpl(
-      provideClient(),
-      provideTokenJar(),
-    ));
+          provideClient(),
+          provideTokenJar(),
+        ));
   }
 
   @override
   TokenJar provideTokenJar() {
-    return registerAsSingleton<TokenJar>(() => TokenJarImpl(
-      provideSecureLocalStroage()
-    ));
+    return registerAsSingleton<TokenJar>(
+        () => TokenJarImpl(provideSecureLocalStroage()));
   }
 
   @override
   ValidatorApi provideValidatorApi() {
     return registerAsSingleton<ValidatorApi>(() => ValidatorApiImpl(
-      provideResourceSrings(),
-      provideMyanmarPhoneNumberValidator()
-    ));
+        provideResourceSrings(), provideMyanmarPhoneNumberValidator()));
   }
 
   @override
   Dio provideClient() {
-    return registerAsSingleton(() => Dio(
-      BaseOptions(
-        baseUrl: "${configContext.scheme}://${configContext.host}/api/v1/",
-      )
-    ));
+    return registerAsSingleton(() => Dio(BaseOptions(
+          baseUrl: "${configContext.scheme}://${configContext.host}/api/v1/",
+        )));
   }
 
   @override
   FormatterApi provideFormatterApi() {
     return registerAsSingleton(() => FormatterApiImpl());
+  }
+
+  @override
+  NetworkClient provideNetworkClient() {
+    return registerAsSingleton<NetworkClient>(
+      () => NetworkClientRealAdapter(
+        provideClient(),
+        NetworkClientConfig(
+          scheme: configContext.scheme,
+          host: configContext.host,
+          apiVersionRoutesMap: configContext.apiVersionRoutes,
+          onException: configContext.onException,
+        ),
+      ),
+    );
   }
 }

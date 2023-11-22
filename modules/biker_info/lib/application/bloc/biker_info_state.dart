@@ -12,6 +12,8 @@ final class BikerInfoError extends BikerInfoState {}
 final class BikerInfoReady implements BikerInfoState {
   final BikerInfoEntity bikerInfo;
 
+  bool get isCheckedIn => bikerInfo.checkInSchedule != null;
+
   const BikerInfoReady({
     required this.bikerInfo,
   });

@@ -641,11 +641,11 @@ class __$$ScheduleStateReadyImplCopyWithImpl<$Res>
     Object? nextSchedules = null,
   }) {
     return _then(_$ScheduleStateReadyImpl(
-      null == currentSchedules
+      currentSchedules: null == currentSchedules
           ? _value._currentSchedules
           : currentSchedules // ignore: cast_nullable_to_non_nullable
               as List<ScheduleEntity>,
-      null == nextSchedules
+      nextSchedules: null == nextSchedules
           ? _value._nextSchedules
           : nextSchedules // ignore: cast_nullable_to_non_nullable
               as List<ScheduleEntity>,
@@ -656,8 +656,9 @@ class __$$ScheduleStateReadyImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ScheduleStateReadyImpl implements ScheduleStateReady {
-  const _$ScheduleStateReadyImpl(final List<ScheduleEntity> currentSchedules,
-      final List<ScheduleEntity> nextSchedules)
+  const _$ScheduleStateReadyImpl(
+      {required final List<ScheduleEntity> currentSchedules,
+      required final List<ScheduleEntity> nextSchedules})
       : _currentSchedules = currentSchedules,
         _nextSchedules = nextSchedules;
 
@@ -789,8 +790,10 @@ class _$ScheduleStateReadyImpl implements ScheduleStateReady {
 }
 
 abstract class ScheduleStateReady implements ScheduleState {
-  const factory ScheduleStateReady(final List<ScheduleEntity> currentSchedules,
-      final List<ScheduleEntity> nextSchedules) = _$ScheduleStateReadyImpl;
+  const factory ScheduleStateReady(
+          {required final List<ScheduleEntity> currentSchedules,
+          required final List<ScheduleEntity> nextSchedules}) =
+      _$ScheduleStateReadyImpl;
 
   List<ScheduleEntity> get currentSchedules;
   List<ScheduleEntity> get nextSchedules;

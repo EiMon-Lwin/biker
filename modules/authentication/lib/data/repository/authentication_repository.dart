@@ -47,9 +47,27 @@ class AuthenticationRepositoryImplementation implements AuthenticationRepository
   Future<DataState<AccessTokenEntity>> refreshAccessToken({
     required String accessToken,
     required String refreshToken,
-  }) {
-    // TODO: implement refreshAccessToken
-    throw UnimplementedError();
+  }) async {
+    const String path = 'auth/refresh-token';
+
+    try {
+      final res = await client.post<Map<String, dynamic>>(
+        path,
+        data: FormData.fromMap({
+          'Access_Token': accessToken,
+          'Refresh_Token': refreshToken,
+        },
+      ));
+
+      try {
+        final value = AccessTokenModel.fromJson(res.data!["data"]);
+        return DataSuccess(value);
+      } on Exception catch (e) {
+        return DataFailed(SerializationException(e));
+      }
+    } on Exception catch (e) {
+      return DataFailed<AccessTokenEntity>(e);
+    }
   }
 
   @override

@@ -224,6 +224,7 @@ abstract class  LocaleKeys {
   static const lblAnd = 'lblAnd';
   static const lblAgree = 'lblAgree';
   static const lblOrders = 'lblOrders';
+  static const lblNoAvailableSchedules = "There is no Available Schedule";
   static const lblCart = 'lblCart';
   static const lblCurrentOrders = 'lblCurrentOrders';
   static const lblPastOrders = 'lblPastOrders';
@@ -301,6 +302,10 @@ abstract class  LocaleKeys {
   static const lblLetRateYourDeliveryPersonServiceMsg = 'lblLetRateYourDeliveryPersonServiceMsg';
   static const lblThisConversationArchived = 'lblThisConversationArchived';
   static const lblYourOrderIsOnTheWay = 'lblYourOrderIsOnTheWay';
+  static const lblCheckIn = 'lblCheckIn';
+  static const lblSchedule = 'lblSchedule';
+  static const lblNoCheckInSchedule = "lblNoCheckInSchedule";
+  static const lblThereIsNoOrders = "lblThereIsNoOrders";
   static const lblOrderCantBeFound = 'lblOrderCantBeFound';
   static const lblChatWithBiker = 'lblChatWithBiker';
   static const lblItWillTakeAbout = 'lblItWillTakeAbout';
@@ -415,5 +420,10 @@ abstract class  LocaleKeys {
   static const btnLoginFacebook = 'btnLoginFacebook';
   static const btnLoginMobile = 'btnLoginMobile';
   static const btnLoginGoogle = 'btnLoginGoogle';
-
+  static const lblUserCheckIn = 'lblUserCheckIn';
+  static const lblUserCheckOut = 'lblUserCheckOut';
+  static const lblCheckInFail = 'lblCheckInFail';
+  static const lblCheckInSuccessful = 'lblCheckInSuccessful';
+  static const lblCheckOutFail = 'lblCheckOutFail';
+  static const lblCheckOutSuccessful = 'lblCheckOutSuccessful';
 }

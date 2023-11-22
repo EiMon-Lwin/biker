@@ -1,0 +1,249 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "biker",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "biker (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "biker (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "app_state_notifier",
+            "cwd": "modules/app_state_notifier",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "authentication",
+            "cwd": "modules/authentication",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "biker_info",
+            "cwd": "modules/biker_info",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "core",
+            "cwd": "modules/core",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "data",
+            "cwd": "modules/data",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "dialog_api",
+            "cwd": "modules/dialog_api",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "dialog_api (profile mode)",
+            "cwd": "modules/dialog_api",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "dialog_api (release mode)",
+            "cwd": "modules/dialog_api",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "domain",
+            "cwd": "modules/domain",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "env_jar",
+            "cwd": "modules/env_jar",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "extensions",
+            "cwd": "modules/extensions",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "extensions (profile mode)",
+            "cwd": "modules/extensions",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "extensions (release mode)",
+            "cwd": "modules/extensions",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "formatter_api",
+            "cwd": "modules/formatter_api",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "geo_locator",
+            "cwd": "modules/geo_locator",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "geo_locator_api",
+            "cwd": "modules/geo_locator_api",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "local_storage",
+            "cwd": "modules/local_storage",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "localization_api",
+            "cwd": "modules/localization_api",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "localization_api (profile mode)",
+            "cwd": "modules/localization_api",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "localization_api (release mode)",
+            "cwd": "modules/localization_api",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "mm_phone_number_validator",
+            "cwd": "modules/mm_phone_number_validator",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "notification",
+            "cwd": "modules/notification",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "order",
+            "cwd": "modules/order",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "resend_pin_button",
+            "cwd": "modules/resend_pin_button",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "resource_strings",
+            "cwd": "modules/resource_strings",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "schedule",
+            "cwd": "modules/schedule",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "secure_local_storage",
+            "cwd": "modules/secure_local_storage",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "service_locator",
+            "cwd": "modules/service_locator",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "shared_dependencies",
+            "cwd": "modules/shared_dependencies",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "sms",
+            "cwd": "modules/sms",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "token_jar",
+            "cwd": "modules/token_jar",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "ui_kit",
+            "cwd": "modules/ui_kit",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "ui_kit (profile mode)",
+            "cwd": "modules/ui_kit",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "ui_kit (release mode)",
+            "cwd": "modules/ui_kit",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "utils",
+            "cwd": "modules/utils",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "validator_api",
+            "cwd": "modules/validator_api",
+            "request": "launch",
+            "type": "dart"
+        }
+    ]
+}

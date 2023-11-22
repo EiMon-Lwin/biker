@@ -109,6 +109,10 @@ abstract class ResourceStrings {
   String get lblSingle;
   String get lblMarried;
   String get lblDivorced;
+  String get lblCheckIn;
+  String get lblSchedule;
+  String get lblNoCheckInSchedule;
+  String get lblThereIsNoOrders;
   String get lblWidow;
   String get lblGender;
   String get lblMale;
@@ -273,6 +277,7 @@ abstract class ResourceStrings {
   String get lblTipsMoney;
   String get lblForDeliveryPerson;
   String get lblLowWalletAmount;
+  String get lblNoAvailableSchedules;
   String get lblDontHaveEnoughBalanceWallet;
   String get lblLowCreditAmount;
   String get lblDontHaveEnoughBalanceCredit;
@@ -323,6 +328,12 @@ abstract class ResourceStrings {
   String get lblAlmostDone;
   String get lblFailedToSendSms;
   String get lblStayTuned;
+  String get lblUserCheckIn;
+  String get lblUserCheckOut;
+  String get lblCheckInSuccessful;
+  String get lblCheckInFail;
+  String get lblCheckOutSuccessful;
+  String get lblCheckOutFail;
   String get lblFeatureWillAvailableSoon;
   String get lblFeatureWillAvailableSoon2;
   String get lblFeatureWillAvailableSoon3;
