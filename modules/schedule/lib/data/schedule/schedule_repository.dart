@@ -68,4 +68,64 @@ class ScheduleRepositoryImplementation implements ScheduleRepository {
       return DataFailed(SerializationException(e));
     }
   }
+
+  @override
+  Future<DataState<bool>> checkOutSchedule(String scheduleId) async {
+    final path = "schedules/check-out";
+
+    try {
+      final accessToken = (await tokenJar.get()).data?.accessToken;
+      final res = await client.get<Map<String, dynamic>>(
+        path,
+        options: Options(headers: {"Authorization": "Bearer $accessToken"}),
+        queryParameters: {"scheduledate": "${scheduleId}"},
+      );
+
+      if (res.statusCode! > 299 || res.statusCode! < 200) {
+        throw HttpStatusException(
+          statusCode: res.statusCode!,
+          message: res.statusMessage,
+        );
+      }
+
+      try {
+        return DataSuccess(res.data!["data"]["success"] == true);
+      } on Exception catch (e) {
+        throw SerializationException(e);
+      }
+    } on Exception catch (e) {
+      return DataFailed(e);
+    }
+  }
+
+  @override
+  Future<DataState<bool>> checkInSchedule(String filePath) async {
+    final path = "schedules/check-in";
+
+    try {
+      final accessToken = (await tokenJar.get()).data?.accessToken;
+      final res = await client.post<Map<String, dynamic>>(
+        path,
+        options: Options(headers: {"Authorization": "Bearer $accessToken"}),
+        data: FormData.fromMap({
+          "image" : MultipartFile.fromFile(filePath)
+        }),
+      );
+
+      if (res.statusCode! > 299 || res.statusCode! < 200) {
+        throw HttpStatusException(
+          statusCode: res.statusCode!,
+          message: res.statusMessage,
+        );
+      }
+
+      try {
+        return DataSuccess(res.data!["data"]["success"] == true);
+      } on Exception catch (e) {
+        throw SerializationException(e);
+      }
+    } on Exception catch (e) {
+      return DataFailed(e);
+    }
+  }
 }

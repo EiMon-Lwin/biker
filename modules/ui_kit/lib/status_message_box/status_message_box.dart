@@ -8,9 +8,11 @@ class StatusMessageBox extends StatelessWidget {
   final String? subtitle;
   final ImageProvider<Object>? image;
   final Widget? ctaWidget;
+  final EdgeInsets? padding;
 
   const StatusMessageBox({
     super.key,
+    this.padding,
     this.title,
     this.subtitle,
     this.image,
@@ -19,7 +21,9 @@ class StatusMessageBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Container(
+      padding: padding,
+      alignment: Alignment.center,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceAround,

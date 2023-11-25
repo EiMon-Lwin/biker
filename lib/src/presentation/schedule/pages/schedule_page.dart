@@ -7,12 +7,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization_api/localization_api.dart';
 import 'package:resource_strings/resource_strings.dart';
-import 'package:schedule/application/bloc/schedule_bloc.dart';
+import 'package:schedule/application/schedule_bloc/schedule_bloc.dart';
 
 import '../body/loading.dart';
 
 class SchedulesPage extends StatelessWidget {
   const SchedulesPage({super.key});
+  
+  static const String routeName = "schedule";
+  static const String routePath = "/$routeName";
 
   @override
   Widget build(BuildContext context) {
@@ -42,9 +45,11 @@ class SchedulesPage extends StatelessWidget {
                 nextSchedules: state.nextSchedules,
               );
             }
+
             if (state is ScheduleStateInitial) {
               return const SchedulePageLoading();
             }
+
             return SchedulePageError(
               onReloadPressed: () => bloc.add(const LoadAllSchedulesEvent()),
             );

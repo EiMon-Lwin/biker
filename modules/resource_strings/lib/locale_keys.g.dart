@@ -13,6 +13,17 @@ abstract class  LocaleKeys {
   static const lblPinDontMatch = 'lblPinDontMatch';
   static const lblCantSignIn = 'lblCantSignIn';
   static const btnExit = 'btnExit';
+  static const lblCheckIn = 'lblCheckIn';
+  static const lblFailedToSendSms = 'lblFailedToSendSms';
+  static const lblCheckInFail = 'lblCheckInFail';
+  static const lblCheckInSuccessful = 'lblCheckInSuccessful';
+  static const lblCheckOutFail = 'lblCheckOutFail';
+  static const lblCheckOutSuccessful = 'lblCheckOutSuccessful';
+  static const lblNoAvailableSchedules = 'lblNoAvailableSchedules';
+  static const lblHome = 'lblHome';
+  static const lblClearance = 'lblClearance';
+  static const lblRules = 'lblRules';
+  static const lblPromotionShops = 'lblPromotionShops';
   static const lblBackgroundLocationPermissionTitle = 'lblBackgroundLocationPermissionTitle';
   static const lblBackgroundLocationPermissionMessage = 'lblBackgroundLocationPermissionMessage';
   static const lblVerifyPhNo = 'lblVerifyPhNo';
@@ -65,8 +76,6 @@ abstract class  LocaleKeys {
   static const btnRescan = 'btnRescan';
   static const lblConfirmPayment = 'lblConfirmPayment';
   static const lblPaymentInfo = 'lblPaymentInfo';
-  static const lblNextSchedules = 'lblNextSchedules';
-  static const lblAvailableSchedules = 'lblAvailableSchedules';
   static const lblEnterSpecialRequest = 'lblEnterSpecialRequest';
   static const lblTopUpWith = 'lblTopUpWith';
   static const lblPlaceVerifyYourFace = 'lblPlaceVerifyYourFace';
@@ -108,7 +117,6 @@ abstract class  LocaleKeys {
   static const lblEnterNrcNumber = 'lblEnterNrcNumber';
   static const lblEnterInEnglishNumber = 'lblEnterInEnglishNumber';
   static const lblEnterValidNumber = 'lblEnterValidNumber';
-  static const lblFailedToSendSms = 'lblFailedToSendSms';
   static const lblSingle = 'lblSingle';
   static const lblMarried = 'lblMarried';
   static const lblDivorced = 'lblDivorced';
@@ -138,6 +146,12 @@ abstract class  LocaleKeys {
   static const lblPending = 'lblPending';
   static const lblOrderSuccesful = 'lblOrderSuccesful';
   static const btnOrderDetails = 'btnOrderDetails';
+  static const lblUserCheckIn = 'lblUserCheckIn';
+  static const lblUserCheckOut = 'lblUserCheckOut';
+  static const lblSchedule = 'lblSchedule';
+  static const lblNextSchedules = 'lblNextSchedules';
+  static const lblNoCheckInSchedule = 'lblNoCheckInSchedule';
+  static const lblThereIsNoOrders = 'lblThereIsNoOrders';
   static const lblUserInfoUpdated = 'lblUserInfoUpdated';
   static const lblUserInfoUpdatedDesc = 'lblUserInfoUpdatedDesc';
   static const lblUserInfoUpdateFailed = 'lblUserInfoUpdateFailed';
@@ -182,6 +196,9 @@ abstract class  LocaleKeys {
   static const lblOffer = 'lblOffer';
   static const lblProfile = 'lblProfile';
   static const lblGenInfo = 'lblGenInfo';
+  static const lblWalletAndEarnings = 'lblWalletAndEarnings';
+  static const lblCashCollected = 'lblCashCollected';
+  static const lblEarning = 'lblEarning';
   static const lblMotePhoe = 'lblMotePhoe';
   static const lblNoti = 'lblNoti';
   static const lblAddressBook = 'lblAddressBook';
@@ -224,7 +241,6 @@ abstract class  LocaleKeys {
   static const lblAnd = 'lblAnd';
   static const lblAgree = 'lblAgree';
   static const lblOrders = 'lblOrders';
-  static const lblNoAvailableSchedules = "There is no Available Schedule";
   static const lblCart = 'lblCart';
   static const lblCurrentOrders = 'lblCurrentOrders';
   static const lblPastOrders = 'lblPastOrders';
@@ -255,6 +271,7 @@ abstract class  LocaleKeys {
   static const lblProcessing = 'lblProcessing';
   static const lblKYCVerified = 'lblKYCVerified';
   static const lblVerifyKYC = 'lblVerifyKYC';
+  static const lblAvailableSchedules = 'lblAvailableSchedules';
   static const lblReadMore = 'lblReadMore';
   static const btnCheckOut = 'btnCheckOut';
   static const lblTotal = 'lblTotal';
@@ -302,10 +319,6 @@ abstract class  LocaleKeys {
   static const lblLetRateYourDeliveryPersonServiceMsg = 'lblLetRateYourDeliveryPersonServiceMsg';
   static const lblThisConversationArchived = 'lblThisConversationArchived';
   static const lblYourOrderIsOnTheWay = 'lblYourOrderIsOnTheWay';
-  static const lblCheckIn = 'lblCheckIn';
-  static const lblSchedule = 'lblSchedule';
-  static const lblNoCheckInSchedule = "lblNoCheckInSchedule";
-  static const lblThereIsNoOrders = "lblThereIsNoOrders";
   static const lblOrderCantBeFound = 'lblOrderCantBeFound';
   static const lblChatWithBiker = 'lblChatWithBiker';
   static const lblItWillTakeAbout = 'lblItWillTakeAbout';
@@ -420,10 +433,5 @@ abstract class  LocaleKeys {
   static const btnLoginFacebook = 'btnLoginFacebook';
   static const btnLoginMobile = 'btnLoginMobile';
   static const btnLoginGoogle = 'btnLoginGoogle';
-  static const lblUserCheckIn = 'lblUserCheckIn';
-  static const lblUserCheckOut = 'lblUserCheckOut';
-  static const lblCheckInFail = 'lblCheckInFail';
-  static const lblCheckInSuccessful = 'lblCheckInSuccessful';
-  static const lblCheckOutFail = 'lblCheckOutFail';
-  static const lblCheckOutSuccessful = 'lblCheckOutSuccessful';
+
 }

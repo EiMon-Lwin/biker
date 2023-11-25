@@ -2,7 +2,7 @@ import 'package:domain/domain.dart';
 
 class ScheduleEntity {
   final String scheduleDetailId;
-  final DateTime scheduleId;
+  final String scheduleId;
   final String scheduleName;
   final TimeSpanVO startSchedule;
   final TimeSpanVO endSchedule;

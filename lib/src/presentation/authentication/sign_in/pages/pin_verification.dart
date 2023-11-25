@@ -1,10 +1,8 @@
-import 'package:biker/locale_keys.g.dart';
 import 'package:biker/src/constant/constant.dart';
 import 'package:biker/src/presentation/authentication/sign_in/bloc/sign_in_bloc.dart';
 import 'package:biker/src/presentation/presentation.dart';
 import 'package:core/core.dart';
 import 'package:dialog_api/dialog_api.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -65,6 +63,9 @@ class _PasscodePageState extends State<PasscodePage> {
 
   @override
   Widget build(BuildContext context) {
+    final localeApi = inject<LocalizationApi>();
+    final resourceStrings = inject<ResourceStrings>();
+
     final pinCodeFieldTheme = PinTheme(
       width: 30,
       height: 40,
@@ -99,13 +100,13 @@ class _PasscodePageState extends State<PasscodePage> {
                     padding: const EdgeInsets.fromLTRB(20, 80, 20, 0),
                     children: [
                       Text(
-                        tr(LocaleKeys.lblVerifyPhNo),
+                        localeApi.tr(resourceStrings.lblVerifyPhNo),
                         style: context.theme.textTheme.titleLarge
                             ?.copyWith(color: context.theme.primaryColor),
                       ),
                       const SizedBox(height: 20),
                       Text(
-                        tr(LocaleKeys.lblEnterDigitSent),
+                        localeApi.tr(resourceStrings.lblEnterDigitSent),
                         style: context.theme.textTheme.bodyMedium?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),

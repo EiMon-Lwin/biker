@@ -17,8 +17,6 @@ class BikerInfoBloc extends Bloc<BikerInfoEvent, BikerInfoState> {
     this.repository,
   ) : super(BikerInfoInitial()) {
     on<GetBikerInfoEvent>(_onGetBikerInfoEvent);
-    on<ScheduleCheckOutButtonEvent>(_onScheduleCheckOutButtonEvent);
-    authenticationBloc.stream.listen(_onAuthChanged);
   }
 
   FutureOr<void> _onGetBikerInfoEvent(
@@ -30,27 +28,5 @@ class BikerInfoBloc extends Bloc<BikerInfoEvent, BikerInfoState> {
     await repository.getInfo()
       ..onError((error) => emit(BikerInfoError()))
       ..onSuccess((data) => emit(BikerInfoReady(bikerInfo: data)));
-  }
-
-  void _onAuthChanged(AuthenticationState event) {
-    if (event is AuthenticationSuccess) add(GetBikerInfoEvent());
-  }
-
-  FutureOr<void> _onScheduleCheckOutButtonEvent(
-    ScheduleCheckOutButtonEvent event,
-    Emitter<BikerInfoState> emit,
-  ) async {
-    if (state is BikerInfoReady) {
-      final checkInSchedule =(state as BikerInfoReady).bikerInfo.checkInSchedule;
-      final isCheckIn = checkInSchedule != null;
-
-      if (isCheckIn) {
-        await repository.scheduleCheckOut(checkInSchedule.scheduleId)
-          ..onError((error) => event.showCheckOutFail())
-          ..onSuccess((data) => event.showCheckOutSuccess());
-
-        this.add(GetBikerInfoEvent());
-      }
-    }
   }
 }

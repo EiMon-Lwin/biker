@@ -1,10 +1,10 @@
-import 'package:biker/locale_keys.g.dart';
-import 'package:biker/src/presentation/commons/widgets/widgets.dart';
 import 'package:core/core.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:localization_api/localization_api.dart';
+import 'package:resource_strings/resource_strings.dart';
+import 'package:ui_kit/ui_kit.dart';
 import 'package:validator_api/validator_api.dart';
 
 import '../widgets/terms_and_conditions.dart';
@@ -45,6 +45,9 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
+    final localeApi = inject<LocalizationApi>();
+    final resourceStrings = inject<ResourceStrings>();
+
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -129,7 +132,7 @@ class _SignInPageState extends State<SignInPage> {
                         style: context.theme.textTheme.bodyMedium,
                       ),
                     ),
-                    labelText: tr(LocaleKeys.lblWhatIsYourPhNo),
+                    labelText: localeApi.tr(resourceStrings.lblWhatIsYourPhNo),
                     labelStyle: context.theme.textTheme.bodyMedium?.copyWith(
                       color: Colors.grey,
                     ),
@@ -155,7 +158,7 @@ class _SignInPageState extends State<SignInPage> {
               ),
               const SizedBox(height: 15),
               GeneralButton(
-                label: tr(LocaleKeys.btnLogin),
+                label: localeApi.tr(resourceStrings.btnLogin),
                 onPressed: _onContinue,
               ),
               const SizedBox(height: 8),

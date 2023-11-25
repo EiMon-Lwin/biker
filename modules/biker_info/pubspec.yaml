@@ -17,8 +17,6 @@ dependencies:
     path: ../schedule
   token_jar:
     path: ../token_jar
-  authentication:
-    path: ../authentication
     
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1

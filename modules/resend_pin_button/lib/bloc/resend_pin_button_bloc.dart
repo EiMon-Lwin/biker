@@ -46,10 +46,6 @@ class ResendPinButtonBloc extends Bloc<ResendPinButtonEvent, ResendPinButtonStat
     // });
   }
 
-  void _startTimer() {
-    
-  }
-
   FutureOr<void> _onStopButtonEvent(StopButtonEvent event, Emitter<ResendPinButtonState> emit) {
     emit(ResendPinButtonState.initial(0));
   }

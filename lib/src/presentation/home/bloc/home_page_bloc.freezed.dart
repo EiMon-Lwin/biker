@@ -19,32 +19,41 @@ mixin _$HomePageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(void Function() onNavigateToCheckInPage)
+        checkInButtonPress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(void Function() onNavigateToCheckInPage)?
+        checkInButtonPress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(void Function() onNavigateToCheckInPage)?
+        checkInButtonPress,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_CheckInButtonPressed value) checkInButtonPress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_CheckInButtonPressed value)? checkInButtonPress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_CheckInButtonPressed value)? checkInButtonPress,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +116,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(void Function() onNavigateToCheckInPage)
+        checkInButtonPress,
   }) {
     return started();
   }
@@ -115,6 +126,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(void Function() onNavigateToCheckInPage)?
+        checkInButtonPress,
   }) {
     return started?.call();
   }
@@ -123,6 +136,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(void Function() onNavigateToCheckInPage)?
+        checkInButtonPress,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -135,6 +150,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_CheckInButtonPressed value) checkInButtonPress,
   }) {
     return started(this);
   }
@@ -143,6 +159,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_CheckInButtonPressed value)? checkInButtonPress,
   }) {
     return started?.call(this);
   }
@@ -151,6 +168,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_CheckInButtonPressed value)? checkInButtonPress,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -162,6 +180,148 @@ class _$StartedImpl implements _Started {
 
 abstract class _Started implements HomePageEvent {
   const factory _Started() = _$StartedImpl;
+}
+
+/// @nodoc
+abstract class _$$CheckInButtonPressedImplCopyWith<$Res> {
+  factory _$$CheckInButtonPressedImplCopyWith(_$CheckInButtonPressedImpl value,
+          $Res Function(_$CheckInButtonPressedImpl) then) =
+      __$$CheckInButtonPressedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({void Function() onNavigateToCheckInPage});
+}
+
+/// @nodoc
+class __$$CheckInButtonPressedImplCopyWithImpl<$Res>
+    extends _$HomePageEventCopyWithImpl<$Res, _$CheckInButtonPressedImpl>
+    implements _$$CheckInButtonPressedImplCopyWith<$Res> {
+  __$$CheckInButtonPressedImplCopyWithImpl(_$CheckInButtonPressedImpl _value,
+      $Res Function(_$CheckInButtonPressedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? onNavigateToCheckInPage = null,
+  }) {
+    return _then(_$CheckInButtonPressedImpl(
+      onNavigateToCheckInPage: null == onNavigateToCheckInPage
+          ? _value.onNavigateToCheckInPage
+          : onNavigateToCheckInPage // ignore: cast_nullable_to_non_nullable
+              as void Function(),
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CheckInButtonPressedImpl implements _CheckInButtonPressed {
+  const _$CheckInButtonPressedImpl({required this.onNavigateToCheckInPage});
+
+  @override
+  final void Function() onNavigateToCheckInPage;
+
+  @override
+  String toString() {
+    return 'HomePageEvent.checkInButtonPress(onNavigateToCheckInPage: $onNavigateToCheckInPage)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CheckInButtonPressedImpl &&
+            (identical(
+                    other.onNavigateToCheckInPage, onNavigateToCheckInPage) ||
+                other.onNavigateToCheckInPage == onNavigateToCheckInPage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, onNavigateToCheckInPage);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CheckInButtonPressedImplCopyWith<_$CheckInButtonPressedImpl>
+      get copyWith =>
+          __$$CheckInButtonPressedImplCopyWithImpl<_$CheckInButtonPressedImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(void Function() onNavigateToCheckInPage)
+        checkInButtonPress,
+  }) {
+    return checkInButtonPress(onNavigateToCheckInPage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(void Function() onNavigateToCheckInPage)?
+        checkInButtonPress,
+  }) {
+    return checkInButtonPress?.call(onNavigateToCheckInPage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(void Function() onNavigateToCheckInPage)?
+        checkInButtonPress,
+    required TResult orElse(),
+  }) {
+    if (checkInButtonPress != null) {
+      return checkInButtonPress(onNavigateToCheckInPage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_CheckInButtonPressed value) checkInButtonPress,
+  }) {
+    return checkInButtonPress(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_CheckInButtonPressed value)? checkInButtonPress,
+  }) {
+    return checkInButtonPress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_CheckInButtonPressed value)? checkInButtonPress,
+    required TResult orElse(),
+  }) {
+    if (checkInButtonPress != null) {
+      return checkInButtonPress(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CheckInButtonPressed implements HomePageEvent {
+  const factory _CheckInButtonPressed(
+          {required final void Function() onNavigateToCheckInPage}) =
+      _$CheckInButtonPressedImpl;
+
+  void Function() get onNavigateToCheckInPage;
+  @JsonKey(ignore: true)
+  _$$CheckInButtonPressedImplCopyWith<_$CheckInButtonPressedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

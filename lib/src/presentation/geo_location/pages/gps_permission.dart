@@ -1,14 +1,14 @@
 import 'dart:io';
 import 'dart:math';
 
-import 'package:biker/locale_keys.g.dart';
 import 'package:biker/src/presentation/commons/widgets/botton_navigation_wrapper.dart';
 import 'package:biker/src/presentation/commons/widgets/general_button.dart';
 import 'package:core/core.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:geo_locator/bloc/geo_locator_bloc.dart';
 import 'package:get/get.dart';
+import 'package:localization_api/localization_api.dart';
+import 'package:resource_strings/resource_strings.dart';
 
 class LocationPermissionPage extends StatefulWidget {
   const LocationPermissionPage({super.key});
@@ -31,6 +31,9 @@ class _LocationPermissionPageState extends State<LocationPermissionPage> {
 
   @override
   Widget build(BuildContext context) {
+    final localeApi = inject<LocalizationApi>();
+    final resourceStrings = inject<ResourceStrings>();
+
     return Scaffold(
       body: Center(
         child: Column(
@@ -54,7 +57,7 @@ class _LocationPermissionPageState extends State<LocationPermissionPage> {
               child: RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                  text: tr(LocaleKeys.lblBackgroundLocationPermissionTitle),
+                  text: localeApi.tr(resourceStrings.lblBackgroundLocationPermissionTitle),
                   style: context.theme.textTheme.titleLarge?.copyWith(
                     color: context.theme.textTheme.bodySmall?.color
                         ?.withOpacity(0.8),
@@ -62,7 +65,7 @@ class _LocationPermissionPageState extends State<LocationPermissionPage> {
                   children: [
                     TextSpan(
                       text:
-                          "\n${tr(LocaleKeys.lblBackgroundLocationPermissionMessage)}",
+                          "\n${localeApi.tr(resourceStrings.lblBackgroundLocationPermissionMessage)}",
                       style: context.theme.textTheme.bodySmall,
                     ),
                   ],
@@ -77,12 +80,12 @@ class _LocationPermissionPageState extends State<LocationPermissionPage> {
         child: Column(
           children: [
             GeneralButton(
-              label: tr(LocaleKeys.btnContinue),
+              label: localeApi.tr(resourceStrings.btnContinue),
               onPressed: () => bloc.add(const RequestLocationPermission()),
             ),
             const SizedBox(height: 10),
             GeneralButton(
-              label: tr(LocaleKeys.btnExit),
+              label: localeApi.tr(resourceStrings.btnExit),
               borderColor: context.theme.primaryColor,
               fillColor: context.theme.cardColor,
               labelStyle: context.theme.textTheme.titleMedium,

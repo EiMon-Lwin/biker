@@ -47,4 +47,4 @@ class MyApp extends StatelessWidget {
 }
 
 
-// dart run easy_localization:generate -S assets/translations -f keys -O lib -o locale_keys.g.dart
+// dart run easy_localization:generate -S assets/translations -f keys -O lib -o ../modules/resource_strings/lib/locale_keys.g.dart

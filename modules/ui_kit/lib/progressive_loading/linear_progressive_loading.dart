@@ -14,9 +14,8 @@ class LinearProgressiveLoadingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: width,
-      child: const FittedBox(
-        fit: BoxFit.fitWidth,
-        child: LinearProgressIndicator(),
+      child: const LinearProgressIndicator(
+        borderRadius: BorderRadius.all(Radius.circular(100)),
       ),
     );
   }

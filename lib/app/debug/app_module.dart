@@ -5,7 +5,8 @@ import 'package:app_state_notifier/app_state_notifier.dart';
 import 'package:geo_locator/bloc/geo_locator_bloc.dart';
 import 'package:order/application/bloc/order_bloc.dart';
 import 'package:biker_info/biker_info.dart';
-import 'package:schedule/application/bloc/schedule_bloc.dart';
+import 'package:schedule/application/schedule_bloc/schedule_bloc.dart';
+import 'package:schedule/application/schedule_check_in/schedule_check_in_bloc.dart';
 import '../app_module.dart';
 
 class AppModulesDebug extends AppModules {
@@ -72,6 +73,13 @@ class AppModulesDebug extends AppModules {
       provideBikerInfoBloc(),
       provideGeoLocatorBloc(),
       dataModules.provideTokenJar(),
+    ));
+  }
+
+  @override
+  ScheduleCheckInBloc provideScheduleCheckInBloc() {
+    return registerAsSingleton(() => ScheduleCheckInBloc(
+      dataModules.provideScheduleRepository()
     ));
   }
 }

@@ -15,10 +15,11 @@ class OrderPageLoadingWidget extends StatelessWidget {
     return GreyedBox(
       child: Column(
         children: [
-          const LinearProgressiveLoadingWidget(),
           StatusMessageBox(
-            subtitle: localeApi.tr(resourceStrings.lblLoading),
+            subtitle: "${localeApi.tr(resourceStrings.lblLoading)} ...",
+            padding: const EdgeInsets.only(bottom: 10),
           ),
+          const LinearProgressiveLoadingWidget(),
         ],
       ),
     );

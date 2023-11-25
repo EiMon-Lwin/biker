@@ -22,7 +22,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
   final Future<void> Function() showSignInFailedAlert;
   final Future<void> Function() showWrongPinAlert;
 
-  late StreamSubscription<SmsState> _smsBlocSub;
+  late StreamSubscription<SmsState> smsBlocSub;
 
   SignInBloc(
     this.resendPinButtonBloc,
@@ -35,7 +35,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     on<_SendPinCode>(_onSendPinCode);
     on<_SendingPinCodeFailed>(_onSendingPinCodeFailed);
     on<_VerifyPinCode>(_onVerifyPinCode);
-    _smsBlocSub = smsBloc.stream.listen(_onSmsStateChanged);
+    smsBlocSub = smsBloc.stream.listen(_onSmsStateChanged);
   }
 
   late final pinCodeFieldController = TextEditingController();

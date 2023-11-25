@@ -1,6 +1,11 @@
 abstract class ResourceStrings {
   String get lblEng;
   String get lblMM;
+  String get lblCheckIn;
+  String get lblHome;
+  String get lblClearance;
+  String get lblRules;
+  String get lblPromotionShops;
   String get lblWelcome;
   String get lblRnRAlreadyRead;
   String get lblWhatIsYourPhNo;
@@ -109,7 +114,6 @@ abstract class ResourceStrings {
   String get lblSingle;
   String get lblMarried;
   String get lblDivorced;
-  String get lblCheckIn;
   String get lblSchedule;
   String get lblNoCheckInSchedule;
   String get lblThereIsNoOrders;
@@ -424,4 +428,7 @@ abstract class ResourceStrings {
   String get btnLoginFacebook;
   String get btnLoginMobile;
   String get btnLoginGoogle;
+  String get lblCashCollected;
+  String get lblEarning;
+  String get lblWalletAndEarnings;
 }

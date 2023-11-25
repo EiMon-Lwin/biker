@@ -19,7 +19,6 @@ import 'package:localization_api/localization_api_impl.dart';
 import 'package:mm_phone_number_validator/mm_phone_number_validator.dart';
 import 'package:mm_phone_number_validator/mm_phone_number_validator_impl.dart';
 import 'package:network_client/network_client.dart';
-import 'package:network_client/src/network_client.dart';
 import 'package:network_client_real_adapter/network_client_real_adapter.dart';
 import 'package:notification/notification.dart';
 import 'package:order/order.dart';
@@ -166,7 +165,12 @@ class DataModulesDebug extends DataModules {
     return registerAsSingleton(() => Dio(BaseOptions(
           baseUrl: "${configContext.scheme}://${configContext.host}/api/v1/",
         ))
-          ..interceptors.add(PrettyDioLogger()));
+          ..interceptors.add(PrettyDioLogger(
+            requestBody: false,
+            responseBody: false,
+            requestHeader: false,
+            responseHeader: false,
+          )));
   }
 
   @override

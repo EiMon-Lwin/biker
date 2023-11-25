@@ -1,12 +1,13 @@
 import 'dart:math';
 import 'dart:ui';
 
-import 'package:biker/locale_keys.g.dart';
 import 'package:biker/src/constant/constant.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:core/di/injector.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:localization_api/localization_api.dart';
+import 'package:resource_strings/resource_strings.dart';
 
 class LoadingOverlay extends StatelessWidget {
   final String? message;
@@ -29,6 +30,9 @@ class LoadingOverlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final localeApi = inject<LocalizationApi>();
+    final resourceStrings = inject<ResourceStrings>();
+    
     return SizedBox(
       width: context.width,
       height: context.height,
@@ -123,7 +127,7 @@ class LoadingOverlay extends StatelessWidget {
                           const Icon(Icons.arrow_back_rounded),
                           const SizedBox(width: 10.0),
                           Text(
-                            tr(LocaleKeys.btnGoBack),
+                            localeApi.tr(resourceStrings.btnGoBack),
                             style: theme.textTheme.titleMedium?.copyWith(
                               color: theme.primaryColor,
                             ),

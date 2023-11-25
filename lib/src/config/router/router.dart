@@ -1,5 +1,6 @@
 import 'package:app_state_notifier/app_state_notifier.dart';
 import 'package:biker/src/presentation/presentation.dart';
+import 'package:biker/src/presentation/schedule/pages/schedule_page.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
@@ -7,7 +8,21 @@ class RouterService {
   final bool isDevEnv;
   final AppStateNotifier appState;
 
-  RouterService(this.appState, {this.isDevEnv = true});
+  RouterService(
+    this.appState, {
+    this.isDevEnv = true,
+  });
+
+  late final String home = HomePage.routePath;
+  late final String schedule = "/schedules"; //TODO replace with specific impl
+  late final String settings = "/settings";
+  late final String wallet = "/wallet";
+  late final String personal = "/personal";
+  late final String pastOrders = "/past-orders";
+  late final String clearance = "/clearance";
+  late final String rules = "/rules";
+  late final String promotionShops = "/promotion-shops";
+  late final String notification = "notification";
 
   // static const String OrderDetailPage = "/orderdetail";
   // static const String CheckInPage = "/checkin";
@@ -119,7 +134,9 @@ class RouterService {
         name: HomePage.routeName,
         path: HomePage.routePath,
         builder: (context, state) {
-          return const HomePage();
+          return HomePage(
+            navigateToCheckInPage: () => context.goNamed(SchedulesPage.routeName),
+          );
         },
       ),
       GoRoute(
@@ -134,6 +151,13 @@ class RouterService {
         path: TurnOnLocationPage.routePath,
         builder: (context, state) {
           return const TurnOnLocationPage();
+        },
+      ),
+      GoRoute(
+        name: SchedulesPage.routeName,
+        path:  SchedulesPage.routePath,
+        builder: (context, state) {
+          return const SchedulesPage();
         },
       )
     ],

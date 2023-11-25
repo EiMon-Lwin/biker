@@ -25,8 +25,9 @@ class AppStateBloc extends Bloc<AppStateEvent, AppStateState> {
   ) : super(const AppStateInitial()) {
     on<AppInitializeEvent>(_initialize);
     on<AppReadyEvent>(_onAppStateReady);
-    authenticationBloc.stream.listen(_onAuthStateChanged);
-    bikerInfoBloc.stream.listen(_onBikerInfoState);
+    authenticationBloc.stream.distinct().listen(_onAuthStateChanged);
+    bikerInfoBloc.stream.distinct().listen(_onBikerInfoState);
+    add(AppStateEvent.initialize());
   }
 
   FutureOr<void> _initialize(
@@ -55,8 +56,12 @@ class AppStateBloc extends Bloc<AppStateEvent, AppStateState> {
     emit(const AppStateState.ready());
   }
 
+
   void _onAuthStateChanged(AuthenticationState event) {
-    bikerInfoBloc.add(GetBikerInfoEvent());
-    geoLocatorBloc.add(const CheckLocationEnabledEvent());
+    print("AUTHENTICATION BLOC STATE CHANGED - ${event.runtimeType}");
+    if(event is AuthenticationSuccess || event is AuthenticationFailed) {
+      bikerInfoBloc.add(GetBikerInfoEvent());
+      geoLocatorBloc.add(const CheckLocationEnabledEvent());
+    }
   }
 }

@@ -31,7 +31,7 @@ class SchedulePageReady extends StatelessWidget {
             items: currentSchedules,
           ),
         ScheduleItems(
-          title: localeApi.tr(resourceStrings.lblAvailableSchedules),
+          title: localeApi.tr(resourceStrings.lblNextSchedules),
           items: nextSchedules,
         ),
       ],

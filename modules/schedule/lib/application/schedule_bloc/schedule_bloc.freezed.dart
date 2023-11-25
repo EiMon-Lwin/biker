@@ -21,6 +21,7 @@ mixin _$ScheduleEvent {
     required TResult Function() loadAllSchedules,
     required TResult Function() loadCurrentSchedules,
     required TResult Function() loadNextSchedules,
+    required TResult Function(String scheduleId) checkOutSchedule,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$ScheduleEvent {
     TResult? Function()? loadAllSchedules,
     TResult? Function()? loadCurrentSchedules,
     TResult? Function()? loadNextSchedules,
+    TResult? Function(String scheduleId)? checkOutSchedule,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$ScheduleEvent {
     TResult Function()? loadAllSchedules,
     TResult Function()? loadCurrentSchedules,
     TResult Function()? loadNextSchedules,
+    TResult Function(String scheduleId)? checkOutSchedule,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +47,7 @@ mixin _$ScheduleEvent {
     required TResult Function(LoadCurrentSchedulesEvent value)
         loadCurrentSchedules,
     required TResult Function(LoadNextSchedulesEvent value) loadNextSchedules,
+    required TResult Function(CheckOutScheduleEvent value) checkOutSchedule,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +55,7 @@ mixin _$ScheduleEvent {
     TResult? Function(LoadAllSchedulesEvent value)? loadAllSchedules,
     TResult? Function(LoadCurrentSchedulesEvent value)? loadCurrentSchedules,
     TResult? Function(LoadNextSchedulesEvent value)? loadNextSchedules,
+    TResult? Function(CheckOutScheduleEvent value)? checkOutSchedule,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +63,7 @@ mixin _$ScheduleEvent {
     TResult Function(LoadAllSchedulesEvent value)? loadAllSchedules,
     TResult Function(LoadCurrentSchedulesEvent value)? loadCurrentSchedules,
     TResult Function(LoadNextSchedulesEvent value)? loadNextSchedules,
+    TResult Function(CheckOutScheduleEvent value)? checkOutSchedule,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -124,6 +130,7 @@ class _$LoadAllSchedulesEventImpl implements LoadAllSchedulesEvent {
     required TResult Function() loadAllSchedules,
     required TResult Function() loadCurrentSchedules,
     required TResult Function() loadNextSchedules,
+    required TResult Function(String scheduleId) checkOutSchedule,
   }) {
     return loadAllSchedules();
   }
@@ -134,6 +141,7 @@ class _$LoadAllSchedulesEventImpl implements LoadAllSchedulesEvent {
     TResult? Function()? loadAllSchedules,
     TResult? Function()? loadCurrentSchedules,
     TResult? Function()? loadNextSchedules,
+    TResult? Function(String scheduleId)? checkOutSchedule,
   }) {
     return loadAllSchedules?.call();
   }
@@ -144,6 +152,7 @@ class _$LoadAllSchedulesEventImpl implements LoadAllSchedulesEvent {
     TResult Function()? loadAllSchedules,
     TResult Function()? loadCurrentSchedules,
     TResult Function()? loadNextSchedules,
+    TResult Function(String scheduleId)? checkOutSchedule,
     required TResult orElse(),
   }) {
     if (loadAllSchedules != null) {
@@ -159,6 +168,7 @@ class _$LoadAllSchedulesEventImpl implements LoadAllSchedulesEvent {
     required TResult Function(LoadCurrentSchedulesEvent value)
         loadCurrentSchedules,
     required TResult Function(LoadNextSchedulesEvent value) loadNextSchedules,
+    required TResult Function(CheckOutScheduleEvent value) checkOutSchedule,
   }) {
     return loadAllSchedules(this);
   }
@@ -169,6 +179,7 @@ class _$LoadAllSchedulesEventImpl implements LoadAllSchedulesEvent {
     TResult? Function(LoadAllSchedulesEvent value)? loadAllSchedules,
     TResult? Function(LoadCurrentSchedulesEvent value)? loadCurrentSchedules,
     TResult? Function(LoadNextSchedulesEvent value)? loadNextSchedules,
+    TResult? Function(CheckOutScheduleEvent value)? checkOutSchedule,
   }) {
     return loadAllSchedules?.call(this);
   }
@@ -179,6 +190,7 @@ class _$LoadAllSchedulesEventImpl implements LoadAllSchedulesEvent {
     TResult Function(LoadAllSchedulesEvent value)? loadAllSchedules,
     TResult Function(LoadCurrentSchedulesEvent value)? loadCurrentSchedules,
     TResult Function(LoadNextSchedulesEvent value)? loadNextSchedules,
+    TResult Function(CheckOutScheduleEvent value)? checkOutSchedule,
     required TResult orElse(),
   }) {
     if (loadAllSchedules != null) {
@@ -236,6 +248,7 @@ class _$LoadCurrentSchedulesEventImpl implements LoadCurrentSchedulesEvent {
     required TResult Function() loadAllSchedules,
     required TResult Function() loadCurrentSchedules,
     required TResult Function() loadNextSchedules,
+    required TResult Function(String scheduleId) checkOutSchedule,
   }) {
     return loadCurrentSchedules();
   }
@@ -246,6 +259,7 @@ class _$LoadCurrentSchedulesEventImpl implements LoadCurrentSchedulesEvent {
     TResult? Function()? loadAllSchedules,
     TResult? Function()? loadCurrentSchedules,
     TResult? Function()? loadNextSchedules,
+    TResult? Function(String scheduleId)? checkOutSchedule,
   }) {
     return loadCurrentSchedules?.call();
   }
@@ -256,6 +270,7 @@ class _$LoadCurrentSchedulesEventImpl implements LoadCurrentSchedulesEvent {
     TResult Function()? loadAllSchedules,
     TResult Function()? loadCurrentSchedules,
     TResult Function()? loadNextSchedules,
+    TResult Function(String scheduleId)? checkOutSchedule,
     required TResult orElse(),
   }) {
     if (loadCurrentSchedules != null) {
@@ -271,6 +286,7 @@ class _$LoadCurrentSchedulesEventImpl implements LoadCurrentSchedulesEvent {
     required TResult Function(LoadCurrentSchedulesEvent value)
         loadCurrentSchedules,
     required TResult Function(LoadNextSchedulesEvent value) loadNextSchedules,
+    required TResult Function(CheckOutScheduleEvent value) checkOutSchedule,
   }) {
     return loadCurrentSchedules(this);
   }
@@ -281,6 +297,7 @@ class _$LoadCurrentSchedulesEventImpl implements LoadCurrentSchedulesEvent {
     TResult? Function(LoadAllSchedulesEvent value)? loadAllSchedules,
     TResult? Function(LoadCurrentSchedulesEvent value)? loadCurrentSchedules,
     TResult? Function(LoadNextSchedulesEvent value)? loadNextSchedules,
+    TResult? Function(CheckOutScheduleEvent value)? checkOutSchedule,
   }) {
     return loadCurrentSchedules?.call(this);
   }
@@ -291,6 +308,7 @@ class _$LoadCurrentSchedulesEventImpl implements LoadCurrentSchedulesEvent {
     TResult Function(LoadAllSchedulesEvent value)? loadAllSchedules,
     TResult Function(LoadCurrentSchedulesEvent value)? loadCurrentSchedules,
     TResult Function(LoadNextSchedulesEvent value)? loadNextSchedules,
+    TResult Function(CheckOutScheduleEvent value)? checkOutSchedule,
     required TResult orElse(),
   }) {
     if (loadCurrentSchedules != null) {
@@ -348,6 +366,7 @@ class _$LoadNextSchedulesEventImpl implements LoadNextSchedulesEvent {
     required TResult Function() loadAllSchedules,
     required TResult Function() loadCurrentSchedules,
     required TResult Function() loadNextSchedules,
+    required TResult Function(String scheduleId) checkOutSchedule,
   }) {
     return loadNextSchedules();
   }
@@ -358,6 +377,7 @@ class _$LoadNextSchedulesEventImpl implements LoadNextSchedulesEvent {
     TResult? Function()? loadAllSchedules,
     TResult? Function()? loadCurrentSchedules,
     TResult? Function()? loadNextSchedules,
+    TResult? Function(String scheduleId)? checkOutSchedule,
   }) {
     return loadNextSchedules?.call();
   }
@@ -368,6 +388,7 @@ class _$LoadNextSchedulesEventImpl implements LoadNextSchedulesEvent {
     TResult Function()? loadAllSchedules,
     TResult Function()? loadCurrentSchedules,
     TResult Function()? loadNextSchedules,
+    TResult Function(String scheduleId)? checkOutSchedule,
     required TResult orElse(),
   }) {
     if (loadNextSchedules != null) {
@@ -383,6 +404,7 @@ class _$LoadNextSchedulesEventImpl implements LoadNextSchedulesEvent {
     required TResult Function(LoadCurrentSchedulesEvent value)
         loadCurrentSchedules,
     required TResult Function(LoadNextSchedulesEvent value) loadNextSchedules,
+    required TResult Function(CheckOutScheduleEvent value) checkOutSchedule,
   }) {
     return loadNextSchedules(this);
   }
@@ -393,6 +415,7 @@ class _$LoadNextSchedulesEventImpl implements LoadNextSchedulesEvent {
     TResult? Function(LoadAllSchedulesEvent value)? loadAllSchedules,
     TResult? Function(LoadCurrentSchedulesEvent value)? loadCurrentSchedules,
     TResult? Function(LoadNextSchedulesEvent value)? loadNextSchedules,
+    TResult? Function(CheckOutScheduleEvent value)? checkOutSchedule,
   }) {
     return loadNextSchedules?.call(this);
   }
@@ -403,6 +426,7 @@ class _$LoadNextSchedulesEventImpl implements LoadNextSchedulesEvent {
     TResult Function(LoadAllSchedulesEvent value)? loadAllSchedules,
     TResult Function(LoadCurrentSchedulesEvent value)? loadCurrentSchedules,
     TResult Function(LoadNextSchedulesEvent value)? loadNextSchedules,
+    TResult Function(CheckOutScheduleEvent value)? checkOutSchedule,
     required TResult orElse(),
   }) {
     if (loadNextSchedules != null) {
@@ -414,6 +438,156 @@ class _$LoadNextSchedulesEventImpl implements LoadNextSchedulesEvent {
 
 abstract class LoadNextSchedulesEvent implements ScheduleEvent {
   const factory LoadNextSchedulesEvent() = _$LoadNextSchedulesEventImpl;
+}
+
+/// @nodoc
+abstract class _$$CheckOutScheduleEventImplCopyWith<$Res> {
+  factory _$$CheckOutScheduleEventImplCopyWith(
+          _$CheckOutScheduleEventImpl value,
+          $Res Function(_$CheckOutScheduleEventImpl) then) =
+      __$$CheckOutScheduleEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String scheduleId});
+}
+
+/// @nodoc
+class __$$CheckOutScheduleEventImplCopyWithImpl<$Res>
+    extends _$ScheduleEventCopyWithImpl<$Res, _$CheckOutScheduleEventImpl>
+    implements _$$CheckOutScheduleEventImplCopyWith<$Res> {
+  __$$CheckOutScheduleEventImplCopyWithImpl(_$CheckOutScheduleEventImpl _value,
+      $Res Function(_$CheckOutScheduleEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? scheduleId = null,
+  }) {
+    return _then(_$CheckOutScheduleEventImpl(
+      scheduleId: null == scheduleId
+          ? _value.scheduleId
+          : scheduleId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CheckOutScheduleEventImpl implements CheckOutScheduleEvent {
+  const _$CheckOutScheduleEventImpl({required this.scheduleId});
+
+  @override
+  final String scheduleId;
+
+  @override
+  String toString() {
+    return 'ScheduleEvent.checkOutSchedule(scheduleId: $scheduleId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CheckOutScheduleEventImpl &&
+            (identical(other.scheduleId, scheduleId) ||
+                other.scheduleId == scheduleId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, scheduleId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CheckOutScheduleEventImplCopyWith<_$CheckOutScheduleEventImpl>
+      get copyWith => __$$CheckOutScheduleEventImplCopyWithImpl<
+          _$CheckOutScheduleEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadAllSchedules,
+    required TResult Function() loadCurrentSchedules,
+    required TResult Function() loadNextSchedules,
+    required TResult Function(String scheduleId) checkOutSchedule,
+  }) {
+    return checkOutSchedule(scheduleId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadAllSchedules,
+    TResult? Function()? loadCurrentSchedules,
+    TResult? Function()? loadNextSchedules,
+    TResult? Function(String scheduleId)? checkOutSchedule,
+  }) {
+    return checkOutSchedule?.call(scheduleId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadAllSchedules,
+    TResult Function()? loadCurrentSchedules,
+    TResult Function()? loadNextSchedules,
+    TResult Function(String scheduleId)? checkOutSchedule,
+    required TResult orElse(),
+  }) {
+    if (checkOutSchedule != null) {
+      return checkOutSchedule(scheduleId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoadAllSchedulesEvent value) loadAllSchedules,
+    required TResult Function(LoadCurrentSchedulesEvent value)
+        loadCurrentSchedules,
+    required TResult Function(LoadNextSchedulesEvent value) loadNextSchedules,
+    required TResult Function(CheckOutScheduleEvent value) checkOutSchedule,
+  }) {
+    return checkOutSchedule(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LoadAllSchedulesEvent value)? loadAllSchedules,
+    TResult? Function(LoadCurrentSchedulesEvent value)? loadCurrentSchedules,
+    TResult? Function(LoadNextSchedulesEvent value)? loadNextSchedules,
+    TResult? Function(CheckOutScheduleEvent value)? checkOutSchedule,
+  }) {
+    return checkOutSchedule?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadAllSchedulesEvent value)? loadAllSchedules,
+    TResult Function(LoadCurrentSchedulesEvent value)? loadCurrentSchedules,
+    TResult Function(LoadNextSchedulesEvent value)? loadNextSchedules,
+    TResult Function(CheckOutScheduleEvent value)? checkOutSchedule,
+    required TResult orElse(),
+  }) {
+    if (checkOutSchedule != null) {
+      return checkOutSchedule(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CheckOutScheduleEvent implements ScheduleEvent {
+  const factory CheckOutScheduleEvent({required final String scheduleId}) =
+      _$CheckOutScheduleEventImpl;
+
+  String get scheduleId;
+  @JsonKey(ignore: true)
+  _$$CheckOutScheduleEventImplCopyWith<_$CheckOutScheduleEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

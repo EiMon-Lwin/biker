@@ -15,10 +15,11 @@ class SchedulePageLoading extends StatelessWidget {
     return GreyedBox(
       child: Column(
         children: [
-          const LinearProgressiveLoadingWidget(),
           StatusMessageBox(
             subtitle: localeApi.tr(resourceStrings.lblLoading),
+            padding: const EdgeInsets.only(bottom: 10.0),
           ),
+          const LinearProgressiveLoadingWidget(),
         ],
       ),
     );

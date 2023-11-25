@@ -31,6 +31,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
     LoadOrdersEvent event,
     Emitter<OrderState> emit,
   ) async {
+    emit(OrderPageLoading());
     await repository.getCurrentOrders(
       userId: event.userId,
       pageSize: event.pageSize,

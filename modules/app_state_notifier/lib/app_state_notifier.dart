@@ -21,9 +21,6 @@ class AppStateNotifier extends ChangeNotifier {
     geoLocatorBloc.stream.listen(_onGeoLocationStateChanged);
   }
 
-  // static const String _logInKey = "LOGIN_KEY";
-  // static const String _onBoardKey = "ONBOARD_KEY";
-
   bool _loginState = false;
   bool _apiConfigured = false;
   bool _initialized = false;

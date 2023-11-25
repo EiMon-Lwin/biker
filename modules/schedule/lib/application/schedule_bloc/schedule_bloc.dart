@@ -15,12 +15,14 @@ class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
     on<LoadAllSchedulesEvent>(_onLoadAllSchedules);
     on<LoadCurrentSchedulesEvent>(_onLoadCurrentSchedles);
     on<LoadNextSchedulesEvent>(_onLoadNextSchedules);
+    on<CheckOutScheduleEvent>(_onCheckOutScheduleEvent);
   }
 
   FutureOr<void> _onLoadAllSchedules(
     LoadAllSchedulesEvent event,
     Emitter<ScheduleState> emit,
   ) async {
+    emit(ScheduleState.initial());
     add(LoadCurrentSchedulesEvent());
     add(LoadNextSchedulesEvent());
   }
@@ -55,5 +57,14 @@ class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
               : [],
         ));
       });
+  }
+
+  FutureOr<void> _onCheckOutScheduleEvent(
+    CheckOutScheduleEvent event,
+    Emitter<ScheduleState> emit,
+  ) async {
+    await repository.checkOutSchedule(event.scheduleId)
+      ..onError((error) {})
+      ..onSuccess((data) {});
   }
 }

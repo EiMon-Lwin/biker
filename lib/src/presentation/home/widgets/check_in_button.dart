@@ -1,3 +1,4 @@
+import 'package:biker/src/utils/context_extension.dart';
 import 'package:biker_info/biker_info.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class CheckInButton extends StatelessWidget {
 
   final bool isCheckedIn;
   final void Function() onCheckInButtonPressed;
-  
+
   const CheckInButton({
     super.key,
     this.isCheckedIn = false,
@@ -26,10 +27,24 @@ class CheckInButton extends StatelessWidget {
     late final resourceStrings = inject<ResourceStrings>();
     late final bloc = inject<BikerInfoBloc>();
 
-
     return BlocBuilder(
       bloc: bloc,
       builder: (context, state) {
+        final button = GeneralButton(
+          cornerRadius: 1000,
+          borderColor: context.theme.cardColor,
+          labelStyle: context.theme.textTheme.titleMedium?.copyWith(
+            color: context.theme.cardColor,
+          ),
+          labelPadding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
+          label: localeApi.tr(
+            isCheckedIn
+                ? resourceStrings.btnCheckOut
+                : resourceStrings.lblUserCheckIn,
+          ),
+          onPressed: onCheckInButtonPressed,
+        );
+
         if (state is BikerInfoReady) {
           final checkInSchedule = state.bikerInfo.checkInSchedule;
           final isCheckedIn = checkInSchedule != null;
@@ -39,18 +54,21 @@ class CheckInButton extends StatelessWidget {
             child: ShakeWidget(
               autoPlay: isCheckedIn,
               shakeConstant: ShakeHardConstant2(),
-              child: GeneralButton(
-                label: localeApi.tr(
-                  isCheckedIn
-                      ? resourceStrings.btnCheckOut
-                      : resourceStrings.lblUserCheckIn,
-                ),
-                onPressed: onCheckInButtonPressed,
-              ),
+              child: button,
             ),
           );
         }
-        return const SizedBox.shrink();
+
+        return IgnorePointer(
+          ignoring: true,
+          child: Padding(
+            padding: margin,
+            child: Opacity(
+              opacity: 0.5,
+              child: button,
+            ),
+          ),
+        );
       },
     );
   }

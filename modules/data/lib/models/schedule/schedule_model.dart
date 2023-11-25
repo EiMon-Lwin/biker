@@ -9,7 +9,7 @@ part 'schedule_model.g.dart';
 class ScheduleModel extends ScheduleEntity with _$ScheduleModel {
   factory ScheduleModel({
     required final String scheduleDetailId,
-    required final DateTime scheduleId,
+    required final String scheduleId,
     required final String scheduleName,
     required final TimeSpanModel startSchedule,
     required final TimeSpanModel endSchedule,

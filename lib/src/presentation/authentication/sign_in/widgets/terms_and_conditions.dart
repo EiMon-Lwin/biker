@@ -1,8 +1,9 @@
-import 'package:biker/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:core/core.dart';
+import 'package:extensions/extensions.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:localization_api/localization_api.dart';
+import 'package:resource_strings/resource_strings.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TermsAndConditionsWidget extends StatelessWidget {
@@ -10,16 +11,19 @@ class TermsAndConditionsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localeApi = inject<LocalizationApi>();
+    final resourceStrings = inject<ResourceStrings>();
+    
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
         style: context.theme.textTheme.bodyMedium,
         children: [
           TextSpan(
-            text: tr(LocaleKeys.lblByContinuingYouAgree),
+            text: localeApi.tr(resourceStrings.lblByContinuingYouAgree),
           ),
           TextSpan(
-            text: tr(LocaleKeys.lblOtherTerms),
+            text: localeApi.tr(resourceStrings.lblOtherTerms),
             style: context.theme.textTheme.titleMedium?.copyWith(
               color: context.theme.primaryColor,
             ),
@@ -28,9 +32,9 @@ class TermsAndConditionsWidget extends StatelessWidget {
                 //TODO Go to rules page
               },
           ),
-          TextSpan(text: tr(LocaleKeys.lblAnd)),
+          TextSpan(text: localeApi.tr(resourceStrings.lblAnd)),
           TextSpan(
-            text: tr(LocaleKeys.lblPrivacyPolicy),
+            text: localeApi.tr(resourceStrings.lblPrivacyPolicy),
             style: context.theme.textTheme.titleMedium?.copyWith(
               color: context.theme.primaryColor,
             ),
@@ -43,7 +47,7 @@ class TermsAndConditionsWidget extends StatelessWidget {
               },
           ),
           TextSpan(
-            text: tr(LocaleKeys.lblAcknowledgeAgree)
+            text: localeApi.tr(resourceStrings.lblAcknowledgeAgree)
           ),
         ],
       ),

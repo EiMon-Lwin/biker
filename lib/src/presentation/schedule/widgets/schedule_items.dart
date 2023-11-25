@@ -1,12 +1,12 @@
 import 'package:biker/src/presentation/schedule/widgets/schedule_widget.dart';
 import 'package:biker/src/utils/context_extension.dart';
 import 'package:domain/domain.dart';
-import 'package:extensions/time_model_ext.dart';
 import 'package:flutter/material.dart';
 
 class ScheduleItems extends StatelessWidget {
   final String title;
   final List<ScheduleEntity> items;
+  
   const ScheduleItems({
     super.key,
     required this.title,
@@ -22,12 +22,7 @@ class ScheduleItems extends StatelessWidget {
           title,
           style: context.theme.textTheme.titleMedium,
         ),
-        ...items.map((e) => ScheduleWidget(
-          scheduleName: e.scheduleName,
-          scheduleId: e.scheduleId,
-          startSchedule: e.startSchedule.asTimeOfDay().format(context),
-          endSchedule: e.endSchedule.asTimeOfDay().format(context),
-        ))
+        ...items.map((e) => ScheduleWidget(schedule: e)),
       ],
     );
   }

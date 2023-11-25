@@ -427,5 +427,11 @@ class ResourceStringsImpl implements ResourceStrings {
   String get lblSchedule => LocaleKeys.lblSchedule;
   String get lblNoCheckInSchedule => LocaleKeys.lblNoCheckInSchedule;
   String get lblThereIsNoOrders => LocaleKeys.lblThereIsNoOrders;
-
+  String get lblHome => LocaleKeys.lblHome;
+  String get lblClearance => LocaleKeys.lblClearance;
+  String get lblRules => LocaleKeys.lblRules;
+  String get lblPromotionShops => LocaleKeys.lblPromotionShops;
+  String get lblCashCollected => LocaleKeys.lblCashCollected;
+  String get lblEarning => LocaleKeys.lblEarning;
+  String get lblWalletAndEarnings => LocaleKeys.lblWalletAndEarnings;
 }

@@ -1,6 +1,5 @@
 import 'package:authentication/authentication.dart';
 import 'package:biker/src/presentation/home/bloc/home_page_bloc.dart';
-import 'package:biker/src/presentation/home/body/loading.dart';
 import 'package:biker/src/presentation/home/body/ready.dart';
 import 'package:biker_info/biker_info.dart';
 import 'package:core/core.dart';
@@ -11,7 +10,8 @@ import 'package:localization_api/localization_api.dart';
 import 'package:resource_strings/resource_strings.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final void Function() navigateToCheckInPage;
+  const HomePage({super.key, required this.navigateToCheckInPage,});
 
   static const String routeName = "index";
   static const String routePath = "/$routeName";
@@ -23,14 +23,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late final localeApi = inject<LocalizationApi>();
   late final resourceStrings = inject<ResourceStrings>();
-  late final homePageBloc = HomePageBloc(inject(), inject(), inject(), inject());
-
-  @override
-  void initState() {
-    homePageBloc.add(const HomePageEvent.started());
-    super.initState();
-  }
-
+  late final homePageBloc = HomePageBloc(inject(), inject(), inject(), inject(), inject());
+  
   @override
   Widget build(BuildContext context) {
     late final bikerInfoBloc = inject<BikerInfoBloc>();
@@ -59,21 +53,27 @@ class _HomePageState extends State<HomePage> {
           builder: (context, state) {
             if (state is BikerInfoReady) {
               return HomePageReady(
-                state: state,
-                isCheckedIn: state.isCheckedIn,
-                onCheckInButtonPressed: () => bikerInfoBloc.add(
-                  ScheduleCheckOutButtonEvent(
-                    showCheckOutFail: showCheckOutFail,
-                    showCheckOutSuccess: showCheckOutSuccess,
-                  ),
-                ),
+                userName: state.bikerInfo.fullName,
+                isCheckedIn: bikerInfoBloc is BikerInfoReady,
+                onCheckInButtonPressed: () {
+                  homePageBloc.add(HomePageEvent.checkInButtonPress(
+                    onNavigateToCheckInPage: widget.navigateToCheckInPage
+                  ));
+                },
                 onRefresh: () async {
                   homePageBloc.add(const HomePageEvent.started());
                 },
               );
             }
 
-            return const HomePageLoading();
+            return HomePageReady(
+                userName: "${localeApi.tr(resourceStrings.lblLoading)}...",
+                isCheckedIn: false,
+                onCheckInButtonPressed: () {},
+                onRefresh: () async {
+                  homePageBloc.add(const HomePageEvent.started());
+                },
+              );
           },
         );
       },

@@ -10,6 +10,7 @@ import 'package:order/application/bloc/order_bloc.dart';
 import 'package:resource_strings/resource_strings.dart';
 
 import '../body/error.dart';
+import '../body/ready.dart';
 
 class CurrentOrdersPage extends StatelessWidget {
   const CurrentOrdersPage({super.key});
@@ -48,6 +49,11 @@ class CurrentOrdersPage extends StatelessWidget {
                       state as OrderPageReady;
                       if (state.currentOrders.isEmpty) {
                         return const OrderPageEmpty();
+                      } else {
+                        return OrderPageReadyWidget(
+                          currentOrders: state.currentOrders,
+                          pastOrders: state.pastOrders,
+                        );
                       }
                   }
                   return const SizedBox.shrink();

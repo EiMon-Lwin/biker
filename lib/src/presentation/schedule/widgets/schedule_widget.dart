@@ -1,23 +1,20 @@
+import 'package:domain/entities/entities.dart';
+import 'package:extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-
 class ScheduleWidget extends StatelessWidget {
-  final String scheduleName;
-  final DateTime scheduleId;
-  final String startSchedule;
-  final String endSchedule;
+  final ScheduleEntity schedule;
 
-  const ScheduleWidget({
-    Key? key,
-    required this.scheduleName,
-    required this.scheduleId,
-    required this.startSchedule,
-    required this.endSchedule,
-  }) : super(key: key);
+  const ScheduleWidget({Key? key, required this.schedule}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final scheduleName = schedule.scheduleName;
+    final scheduleId = schedule.scheduleId;
+    final startSchedule = schedule.startSchedule;
+    final endSchedule = schedule.endSchedule;
+
     return Container(
       margin: const EdgeInsets.symmetric(
         horizontal: 15,
@@ -27,9 +24,9 @@ class ScheduleWidget extends StatelessWidget {
         vertical: 10,
       ),
       decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(15),
-          ),
+        borderRadius: BorderRadius.all(
+          Radius.circular(15),
+        ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -50,10 +47,14 @@ class ScheduleWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    DateFormat("dd, MMM").format(scheduleId),
+                    DateFormat("dd, MMM").format(DateTime.parse(scheduleId)),
+                    style: context.theme.textTheme.titleMedium?.copyWith(
+                      color: context.theme.primaryColor,
+                    ),
                   ),
                   Text(
-                    DateFormat("E").format(scheduleId),
+                    DateFormat("E").format(DateTime.parse(scheduleId)),
+                    style: context.theme.textTheme.titleSmall,
                   ),
                 ],
               ),
@@ -61,7 +62,7 @@ class ScheduleWidget extends StatelessWidget {
                 children: [
                   Center(
                     child: Text(
-                      startSchedule,
+                      startSchedule.dayTimeString(),
                     ),
                   ),
                   const Center(
@@ -71,7 +72,7 @@ class ScheduleWidget extends StatelessWidget {
                   ),
                   Center(
                     child: Text(
-                      endSchedule,
+                      endSchedule.dayTimeString(),
                     ),
                   ),
                 ],

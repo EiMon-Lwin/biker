@@ -1,14 +1,12 @@
 import 'dart:io';
 import 'dart:math';
-
-import 'package:biker/locale_keys.g.dart';
-import 'package:biker/src/presentation/commons/widgets/botton_navigation_wrapper.dart';
-import 'package:biker/src/presentation/commons/widgets/general_button.dart';
 import 'package:core/core.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:geo_locator/bloc/geo_locator_bloc.dart';
 import 'package:get/get.dart';
+import 'package:localization_api/localization_api.dart';
+import 'package:resource_strings/resource_strings.dart';
+import 'package:ui_kit/ui_kit.dart';
 
 
 class TurnOnLocationPage extends StatelessWidget {
@@ -19,6 +17,9 @@ class TurnOnLocationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localeApi = inject<LocalizationApi>();
+    final resourceStrings = inject<ResourceStrings>();
+
     return Scaffold(
       body: Center(
         child: Column(
@@ -42,7 +43,7 @@ class TurnOnLocationPage extends StatelessWidget {
               child: RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                  text: tr(LocaleKeys.lblTurnOnLocationService),
+                  text: localeApi.tr(resourceStrings.lblTurnOnLocationService),
                   style: context.theme.textTheme.titleLarge?.copyWith(
                     color: context.theme.textTheme.bodySmall?.color
                         ?.withOpacity(0.8),
@@ -50,7 +51,7 @@ class TurnOnLocationPage extends StatelessWidget {
                   children: [
                     TextSpan(
                       text:
-                          "\n${tr(LocaleKeys.lblTurnOnLocationServiceMsg)}",
+                          "\n${localeApi.tr(resourceStrings.lblTurnOnLocationServiceMsg)}",
                       style: context.theme.textTheme.bodySmall,
                     ),
                   ],
@@ -60,17 +61,16 @@ class TurnOnLocationPage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationWrapper(
-        height: 110,
+      bottomNavigationBar: BottomActionsWrapper(
         child: Column(
           children: [
             GeneralButton(
-              label: tr(LocaleKeys.btnContinue),
+              label: localeApi.tr(resourceStrings.btnContinue),
               onPressed: () => inject<GeoLocatorBloc>().add(const OpenLocationSetting()),
             ),
             const SizedBox(height: 10),
             GeneralButton(
-              label: tr(LocaleKeys.btnExit),
+              label: localeApi.tr(resourceStrings.btnExit),
               borderColor: context.theme.primaryColor,
               fillColor: context.theme.cardColor,
               labelStyle: context.theme.textTheme.titleMedium?.copyWith(),

@@ -21,7 +21,7 @@ ScheduleModel _$ScheduleModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ScheduleModel {
   String get scheduleDetailId => throw _privateConstructorUsedError;
-  DateTime get scheduleId => throw _privateConstructorUsedError;
+  String get scheduleId => throw _privateConstructorUsedError;
   String get scheduleName => throw _privateConstructorUsedError;
   TimeSpanModel get startSchedule => throw _privateConstructorUsedError;
   TimeSpanModel get endSchedule => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $ScheduleModelCopyWith<$Res> {
   @useResult
   $Res call(
       {String scheduleDetailId,
-      DateTime scheduleId,
+      String scheduleId,
       String scheduleName,
       TimeSpanModel startSchedule,
       TimeSpanModel endSchedule});
@@ -76,7 +76,7 @@ class _$ScheduleModelCopyWithImpl<$Res, $Val extends ScheduleModel>
       scheduleId: null == scheduleId
           ? _value.scheduleId
           : scheduleId // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String,
       scheduleName: null == scheduleName
           ? _value.scheduleName
           : scheduleName // ignore: cast_nullable_to_non_nullable
@@ -119,7 +119,7 @@ abstract class _$$_ScheduleModelCopyWith<$Res>
   @useResult
   $Res call(
       {String scheduleDetailId,
-      DateTime scheduleId,
+      String scheduleId,
       String scheduleName,
       TimeSpanModel startSchedule,
       TimeSpanModel endSchedule});
@@ -155,7 +155,7 @@ class __$$_ScheduleModelCopyWithImpl<$Res>
       scheduleId: null == scheduleId
           ? _value.scheduleId
           : scheduleId // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String,
       scheduleName: null == scheduleName
           ? _value.scheduleName
           : scheduleName // ignore: cast_nullable_to_non_nullable
@@ -188,7 +188,7 @@ class _$_ScheduleModel implements _ScheduleModel {
   @override
   final String scheduleDetailId;
   @override
-  final DateTime scheduleId;
+  final String scheduleId;
   @override
   final String scheduleName;
   @override
@@ -240,7 +240,7 @@ class _$_ScheduleModel implements _ScheduleModel {
 abstract class _ScheduleModel implements ScheduleModel {
   factory _ScheduleModel(
       {required final String scheduleDetailId,
-      required final DateTime scheduleId,
+      required final String scheduleId,
       required final String scheduleName,
       required final TimeSpanModel startSchedule,
       required final TimeSpanModel endSchedule}) = _$_ScheduleModel;
@@ -251,7 +251,7 @@ abstract class _ScheduleModel implements ScheduleModel {
   @override
   String get scheduleDetailId;
   @override
-  DateTime get scheduleId;
+  String get scheduleId;
   @override
   String get scheduleName;
   @override
