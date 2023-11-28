@@ -22,6 +22,9 @@ mixin _$GeoLocatorEvent {
     required TResult Function() checkLocationPermission,
     required TResult Function() requestLocationPermission,
     required TResult Function() openLocationSetting,
+    required TResult Function() startLocationStream,
+    required TResult Function() stopLocationStream,
+    required TResult Function(LatLng location) receivedLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +33,9 @@ mixin _$GeoLocatorEvent {
     TResult? Function()? checkLocationPermission,
     TResult? Function()? requestLocationPermission,
     TResult? Function()? openLocationSetting,
+    TResult? Function()? startLocationStream,
+    TResult? Function()? stopLocationStream,
+    TResult? Function(LatLng location)? receivedLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +44,9 @@ mixin _$GeoLocatorEvent {
     TResult Function()? checkLocationPermission,
     TResult Function()? requestLocationPermission,
     TResult Function()? openLocationSetting,
+    TResult Function()? startLocationStream,
+    TResult Function()? stopLocationStream,
+    TResult Function(LatLng location)? receivedLocation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,6 +59,9 @@ mixin _$GeoLocatorEvent {
     required TResult Function(RequestLocationPermission value)
         requestLocationPermission,
     required TResult Function(OpenLocationSetting value) openLocationSetting,
+    required TResult Function(StartLocationStream value) startLocationStream,
+    required TResult Function(StopLocationStream value) stopLocationStream,
+    required TResult Function(RecievedLocation value) receivedLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +72,9 @@ mixin _$GeoLocatorEvent {
     TResult? Function(RequestLocationPermission value)?
         requestLocationPermission,
     TResult? Function(OpenLocationSetting value)? openLocationSetting,
+    TResult? Function(StartLocationStream value)? startLocationStream,
+    TResult? Function(StopLocationStream value)? stopLocationStream,
+    TResult? Function(RecievedLocation value)? receivedLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +85,9 @@ mixin _$GeoLocatorEvent {
     TResult Function(RequestLocationPermission value)?
         requestLocationPermission,
     TResult Function(OpenLocationSetting value)? openLocationSetting,
+    TResult Function(StartLocationStream value)? startLocationStream,
+    TResult Function(StopLocationStream value)? stopLocationStream,
+    TResult Function(RecievedLocation value)? receivedLocation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -138,6 +156,9 @@ class _$CheckLocationEnabledEventImpl implements CheckLocationEnabledEvent {
     required TResult Function() checkLocationPermission,
     required TResult Function() requestLocationPermission,
     required TResult Function() openLocationSetting,
+    required TResult Function() startLocationStream,
+    required TResult Function() stopLocationStream,
+    required TResult Function(LatLng location) receivedLocation,
   }) {
     return checkLocationEnabled();
   }
@@ -149,6 +170,9 @@ class _$CheckLocationEnabledEventImpl implements CheckLocationEnabledEvent {
     TResult? Function()? checkLocationPermission,
     TResult? Function()? requestLocationPermission,
     TResult? Function()? openLocationSetting,
+    TResult? Function()? startLocationStream,
+    TResult? Function()? stopLocationStream,
+    TResult? Function(LatLng location)? receivedLocation,
   }) {
     return checkLocationEnabled?.call();
   }
@@ -160,6 +184,9 @@ class _$CheckLocationEnabledEventImpl implements CheckLocationEnabledEvent {
     TResult Function()? checkLocationPermission,
     TResult Function()? requestLocationPermission,
     TResult Function()? openLocationSetting,
+    TResult Function()? startLocationStream,
+    TResult Function()? stopLocationStream,
+    TResult Function(LatLng location)? receivedLocation,
     required TResult orElse(),
   }) {
     if (checkLocationEnabled != null) {
@@ -178,6 +205,9 @@ class _$CheckLocationEnabledEventImpl implements CheckLocationEnabledEvent {
     required TResult Function(RequestLocationPermission value)
         requestLocationPermission,
     required TResult Function(OpenLocationSetting value) openLocationSetting,
+    required TResult Function(StartLocationStream value) startLocationStream,
+    required TResult Function(StopLocationStream value) stopLocationStream,
+    required TResult Function(RecievedLocation value) receivedLocation,
   }) {
     return checkLocationEnabled(this);
   }
@@ -191,6 +221,9 @@ class _$CheckLocationEnabledEventImpl implements CheckLocationEnabledEvent {
     TResult? Function(RequestLocationPermission value)?
         requestLocationPermission,
     TResult? Function(OpenLocationSetting value)? openLocationSetting,
+    TResult? Function(StartLocationStream value)? startLocationStream,
+    TResult? Function(StopLocationStream value)? stopLocationStream,
+    TResult? Function(RecievedLocation value)? receivedLocation,
   }) {
     return checkLocationEnabled?.call(this);
   }
@@ -204,6 +237,9 @@ class _$CheckLocationEnabledEventImpl implements CheckLocationEnabledEvent {
     TResult Function(RequestLocationPermission value)?
         requestLocationPermission,
     TResult Function(OpenLocationSetting value)? openLocationSetting,
+    TResult Function(StartLocationStream value)? startLocationStream,
+    TResult Function(StopLocationStream value)? stopLocationStream,
+    TResult Function(RecievedLocation value)? receivedLocation,
     required TResult orElse(),
   }) {
     if (checkLocationEnabled != null) {
@@ -264,6 +300,9 @@ class _$CheckLocationPermissionEventImpl
     required TResult Function() checkLocationPermission,
     required TResult Function() requestLocationPermission,
     required TResult Function() openLocationSetting,
+    required TResult Function() startLocationStream,
+    required TResult Function() stopLocationStream,
+    required TResult Function(LatLng location) receivedLocation,
   }) {
     return checkLocationPermission();
   }
@@ -275,6 +314,9 @@ class _$CheckLocationPermissionEventImpl
     TResult? Function()? checkLocationPermission,
     TResult? Function()? requestLocationPermission,
     TResult? Function()? openLocationSetting,
+    TResult? Function()? startLocationStream,
+    TResult? Function()? stopLocationStream,
+    TResult? Function(LatLng location)? receivedLocation,
   }) {
     return checkLocationPermission?.call();
   }
@@ -286,6 +328,9 @@ class _$CheckLocationPermissionEventImpl
     TResult Function()? checkLocationPermission,
     TResult Function()? requestLocationPermission,
     TResult Function()? openLocationSetting,
+    TResult Function()? startLocationStream,
+    TResult Function()? stopLocationStream,
+    TResult Function(LatLng location)? receivedLocation,
     required TResult orElse(),
   }) {
     if (checkLocationPermission != null) {
@@ -304,6 +349,9 @@ class _$CheckLocationPermissionEventImpl
     required TResult Function(RequestLocationPermission value)
         requestLocationPermission,
     required TResult Function(OpenLocationSetting value) openLocationSetting,
+    required TResult Function(StartLocationStream value) startLocationStream,
+    required TResult Function(StopLocationStream value) stopLocationStream,
+    required TResult Function(RecievedLocation value) receivedLocation,
   }) {
     return checkLocationPermission(this);
   }
@@ -317,6 +365,9 @@ class _$CheckLocationPermissionEventImpl
     TResult? Function(RequestLocationPermission value)?
         requestLocationPermission,
     TResult? Function(OpenLocationSetting value)? openLocationSetting,
+    TResult? Function(StartLocationStream value)? startLocationStream,
+    TResult? Function(StopLocationStream value)? stopLocationStream,
+    TResult? Function(RecievedLocation value)? receivedLocation,
   }) {
     return checkLocationPermission?.call(this);
   }
@@ -330,6 +381,9 @@ class _$CheckLocationPermissionEventImpl
     TResult Function(RequestLocationPermission value)?
         requestLocationPermission,
     TResult Function(OpenLocationSetting value)? openLocationSetting,
+    TResult Function(StartLocationStream value)? startLocationStream,
+    TResult Function(StopLocationStream value)? stopLocationStream,
+    TResult Function(RecievedLocation value)? receivedLocation,
     required TResult orElse(),
   }) {
     if (checkLocationPermission != null) {
@@ -389,6 +443,9 @@ class _$RequestLocationPermissionImpl implements RequestLocationPermission {
     required TResult Function() checkLocationPermission,
     required TResult Function() requestLocationPermission,
     required TResult Function() openLocationSetting,
+    required TResult Function() startLocationStream,
+    required TResult Function() stopLocationStream,
+    required TResult Function(LatLng location) receivedLocation,
   }) {
     return requestLocationPermission();
   }
@@ -400,6 +457,9 @@ class _$RequestLocationPermissionImpl implements RequestLocationPermission {
     TResult? Function()? checkLocationPermission,
     TResult? Function()? requestLocationPermission,
     TResult? Function()? openLocationSetting,
+    TResult? Function()? startLocationStream,
+    TResult? Function()? stopLocationStream,
+    TResult? Function(LatLng location)? receivedLocation,
   }) {
     return requestLocationPermission?.call();
   }
@@ -411,6 +471,9 @@ class _$RequestLocationPermissionImpl implements RequestLocationPermission {
     TResult Function()? checkLocationPermission,
     TResult Function()? requestLocationPermission,
     TResult Function()? openLocationSetting,
+    TResult Function()? startLocationStream,
+    TResult Function()? stopLocationStream,
+    TResult Function(LatLng location)? receivedLocation,
     required TResult orElse(),
   }) {
     if (requestLocationPermission != null) {
@@ -429,6 +492,9 @@ class _$RequestLocationPermissionImpl implements RequestLocationPermission {
     required TResult Function(RequestLocationPermission value)
         requestLocationPermission,
     required TResult Function(OpenLocationSetting value) openLocationSetting,
+    required TResult Function(StartLocationStream value) startLocationStream,
+    required TResult Function(StopLocationStream value) stopLocationStream,
+    required TResult Function(RecievedLocation value) receivedLocation,
   }) {
     return requestLocationPermission(this);
   }
@@ -442,6 +508,9 @@ class _$RequestLocationPermissionImpl implements RequestLocationPermission {
     TResult? Function(RequestLocationPermission value)?
         requestLocationPermission,
     TResult? Function(OpenLocationSetting value)? openLocationSetting,
+    TResult? Function(StartLocationStream value)? startLocationStream,
+    TResult? Function(StopLocationStream value)? stopLocationStream,
+    TResult? Function(RecievedLocation value)? receivedLocation,
   }) {
     return requestLocationPermission?.call(this);
   }
@@ -455,6 +524,9 @@ class _$RequestLocationPermissionImpl implements RequestLocationPermission {
     TResult Function(RequestLocationPermission value)?
         requestLocationPermission,
     TResult Function(OpenLocationSetting value)? openLocationSetting,
+    TResult Function(StartLocationStream value)? startLocationStream,
+    TResult Function(StopLocationStream value)? stopLocationStream,
+    TResult Function(RecievedLocation value)? receivedLocation,
     required TResult orElse(),
   }) {
     if (requestLocationPermission != null) {
@@ -511,6 +583,9 @@ class _$OpenLocationSettingImpl implements OpenLocationSetting {
     required TResult Function() checkLocationPermission,
     required TResult Function() requestLocationPermission,
     required TResult Function() openLocationSetting,
+    required TResult Function() startLocationStream,
+    required TResult Function() stopLocationStream,
+    required TResult Function(LatLng location) receivedLocation,
   }) {
     return openLocationSetting();
   }
@@ -522,6 +597,9 @@ class _$OpenLocationSettingImpl implements OpenLocationSetting {
     TResult? Function()? checkLocationPermission,
     TResult? Function()? requestLocationPermission,
     TResult? Function()? openLocationSetting,
+    TResult? Function()? startLocationStream,
+    TResult? Function()? stopLocationStream,
+    TResult? Function(LatLng location)? receivedLocation,
   }) {
     return openLocationSetting?.call();
   }
@@ -533,6 +611,9 @@ class _$OpenLocationSettingImpl implements OpenLocationSetting {
     TResult Function()? checkLocationPermission,
     TResult Function()? requestLocationPermission,
     TResult Function()? openLocationSetting,
+    TResult Function()? startLocationStream,
+    TResult Function()? stopLocationStream,
+    TResult Function(LatLng location)? receivedLocation,
     required TResult orElse(),
   }) {
     if (openLocationSetting != null) {
@@ -551,6 +632,9 @@ class _$OpenLocationSettingImpl implements OpenLocationSetting {
     required TResult Function(RequestLocationPermission value)
         requestLocationPermission,
     required TResult Function(OpenLocationSetting value) openLocationSetting,
+    required TResult Function(StartLocationStream value) startLocationStream,
+    required TResult Function(StopLocationStream value) stopLocationStream,
+    required TResult Function(RecievedLocation value) receivedLocation,
   }) {
     return openLocationSetting(this);
   }
@@ -564,6 +648,9 @@ class _$OpenLocationSettingImpl implements OpenLocationSetting {
     TResult? Function(RequestLocationPermission value)?
         requestLocationPermission,
     TResult? Function(OpenLocationSetting value)? openLocationSetting,
+    TResult? Function(StartLocationStream value)? startLocationStream,
+    TResult? Function(StopLocationStream value)? stopLocationStream,
+    TResult? Function(RecievedLocation value)? receivedLocation,
   }) {
     return openLocationSetting?.call(this);
   }
@@ -577,6 +664,9 @@ class _$OpenLocationSettingImpl implements OpenLocationSetting {
     TResult Function(RequestLocationPermission value)?
         requestLocationPermission,
     TResult Function(OpenLocationSetting value)? openLocationSetting,
+    TResult Function(StartLocationStream value)? startLocationStream,
+    TResult Function(StopLocationStream value)? stopLocationStream,
+    TResult Function(RecievedLocation value)? receivedLocation,
     required TResult orElse(),
   }) {
     if (openLocationSetting != null) {
@@ -591,9 +681,463 @@ abstract class OpenLocationSetting implements GeoLocatorEvent {
 }
 
 /// @nodoc
+abstract class _$$StartLocationStreamImplCopyWith<$Res> {
+  factory _$$StartLocationStreamImplCopyWith(_$StartLocationStreamImpl value,
+          $Res Function(_$StartLocationStreamImpl) then) =
+      __$$StartLocationStreamImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$StartLocationStreamImplCopyWithImpl<$Res>
+    extends _$GeoLocatorEventCopyWithImpl<$Res, _$StartLocationStreamImpl>
+    implements _$$StartLocationStreamImplCopyWith<$Res> {
+  __$$StartLocationStreamImplCopyWithImpl(_$StartLocationStreamImpl _value,
+      $Res Function(_$StartLocationStreamImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$StartLocationStreamImpl implements StartLocationStream {
+  const _$StartLocationStreamImpl();
+
+  @override
+  String toString() {
+    return 'GeoLocatorEvent.startLocationStream()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$StartLocationStreamImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() checkLocationEnabled,
+    required TResult Function() checkLocationPermission,
+    required TResult Function() requestLocationPermission,
+    required TResult Function() openLocationSetting,
+    required TResult Function() startLocationStream,
+    required TResult Function() stopLocationStream,
+    required TResult Function(LatLng location) receivedLocation,
+  }) {
+    return startLocationStream();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? checkLocationEnabled,
+    TResult? Function()? checkLocationPermission,
+    TResult? Function()? requestLocationPermission,
+    TResult? Function()? openLocationSetting,
+    TResult? Function()? startLocationStream,
+    TResult? Function()? stopLocationStream,
+    TResult? Function(LatLng location)? receivedLocation,
+  }) {
+    return startLocationStream?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? checkLocationEnabled,
+    TResult Function()? checkLocationPermission,
+    TResult Function()? requestLocationPermission,
+    TResult Function()? openLocationSetting,
+    TResult Function()? startLocationStream,
+    TResult Function()? stopLocationStream,
+    TResult Function(LatLng location)? receivedLocation,
+    required TResult orElse(),
+  }) {
+    if (startLocationStream != null) {
+      return startLocationStream();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CheckLocationEnabledEvent value)
+        checkLocationEnabled,
+    required TResult Function(CheckLocationPermissionEvent value)
+        checkLocationPermission,
+    required TResult Function(RequestLocationPermission value)
+        requestLocationPermission,
+    required TResult Function(OpenLocationSetting value) openLocationSetting,
+    required TResult Function(StartLocationStream value) startLocationStream,
+    required TResult Function(StopLocationStream value) stopLocationStream,
+    required TResult Function(RecievedLocation value) receivedLocation,
+  }) {
+    return startLocationStream(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CheckLocationEnabledEvent value)? checkLocationEnabled,
+    TResult? Function(CheckLocationPermissionEvent value)?
+        checkLocationPermission,
+    TResult? Function(RequestLocationPermission value)?
+        requestLocationPermission,
+    TResult? Function(OpenLocationSetting value)? openLocationSetting,
+    TResult? Function(StartLocationStream value)? startLocationStream,
+    TResult? Function(StopLocationStream value)? stopLocationStream,
+    TResult? Function(RecievedLocation value)? receivedLocation,
+  }) {
+    return startLocationStream?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CheckLocationEnabledEvent value)? checkLocationEnabled,
+    TResult Function(CheckLocationPermissionEvent value)?
+        checkLocationPermission,
+    TResult Function(RequestLocationPermission value)?
+        requestLocationPermission,
+    TResult Function(OpenLocationSetting value)? openLocationSetting,
+    TResult Function(StartLocationStream value)? startLocationStream,
+    TResult Function(StopLocationStream value)? stopLocationStream,
+    TResult Function(RecievedLocation value)? receivedLocation,
+    required TResult orElse(),
+  }) {
+    if (startLocationStream != null) {
+      return startLocationStream(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class StartLocationStream implements GeoLocatorEvent {
+  const factory StartLocationStream() = _$StartLocationStreamImpl;
+}
+
+/// @nodoc
+abstract class _$$StopLocationStreamImplCopyWith<$Res> {
+  factory _$$StopLocationStreamImplCopyWith(_$StopLocationStreamImpl value,
+          $Res Function(_$StopLocationStreamImpl) then) =
+      __$$StopLocationStreamImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$StopLocationStreamImplCopyWithImpl<$Res>
+    extends _$GeoLocatorEventCopyWithImpl<$Res, _$StopLocationStreamImpl>
+    implements _$$StopLocationStreamImplCopyWith<$Res> {
+  __$$StopLocationStreamImplCopyWithImpl(_$StopLocationStreamImpl _value,
+      $Res Function(_$StopLocationStreamImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$StopLocationStreamImpl implements StopLocationStream {
+  const _$StopLocationStreamImpl();
+
+  @override
+  String toString() {
+    return 'GeoLocatorEvent.stopLocationStream()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$StopLocationStreamImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() checkLocationEnabled,
+    required TResult Function() checkLocationPermission,
+    required TResult Function() requestLocationPermission,
+    required TResult Function() openLocationSetting,
+    required TResult Function() startLocationStream,
+    required TResult Function() stopLocationStream,
+    required TResult Function(LatLng location) receivedLocation,
+  }) {
+    return stopLocationStream();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? checkLocationEnabled,
+    TResult? Function()? checkLocationPermission,
+    TResult? Function()? requestLocationPermission,
+    TResult? Function()? openLocationSetting,
+    TResult? Function()? startLocationStream,
+    TResult? Function()? stopLocationStream,
+    TResult? Function(LatLng location)? receivedLocation,
+  }) {
+    return stopLocationStream?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? checkLocationEnabled,
+    TResult Function()? checkLocationPermission,
+    TResult Function()? requestLocationPermission,
+    TResult Function()? openLocationSetting,
+    TResult Function()? startLocationStream,
+    TResult Function()? stopLocationStream,
+    TResult Function(LatLng location)? receivedLocation,
+    required TResult orElse(),
+  }) {
+    if (stopLocationStream != null) {
+      return stopLocationStream();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CheckLocationEnabledEvent value)
+        checkLocationEnabled,
+    required TResult Function(CheckLocationPermissionEvent value)
+        checkLocationPermission,
+    required TResult Function(RequestLocationPermission value)
+        requestLocationPermission,
+    required TResult Function(OpenLocationSetting value) openLocationSetting,
+    required TResult Function(StartLocationStream value) startLocationStream,
+    required TResult Function(StopLocationStream value) stopLocationStream,
+    required TResult Function(RecievedLocation value) receivedLocation,
+  }) {
+    return stopLocationStream(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CheckLocationEnabledEvent value)? checkLocationEnabled,
+    TResult? Function(CheckLocationPermissionEvent value)?
+        checkLocationPermission,
+    TResult? Function(RequestLocationPermission value)?
+        requestLocationPermission,
+    TResult? Function(OpenLocationSetting value)? openLocationSetting,
+    TResult? Function(StartLocationStream value)? startLocationStream,
+    TResult? Function(StopLocationStream value)? stopLocationStream,
+    TResult? Function(RecievedLocation value)? receivedLocation,
+  }) {
+    return stopLocationStream?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CheckLocationEnabledEvent value)? checkLocationEnabled,
+    TResult Function(CheckLocationPermissionEvent value)?
+        checkLocationPermission,
+    TResult Function(RequestLocationPermission value)?
+        requestLocationPermission,
+    TResult Function(OpenLocationSetting value)? openLocationSetting,
+    TResult Function(StartLocationStream value)? startLocationStream,
+    TResult Function(StopLocationStream value)? stopLocationStream,
+    TResult Function(RecievedLocation value)? receivedLocation,
+    required TResult orElse(),
+  }) {
+    if (stopLocationStream != null) {
+      return stopLocationStream(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class StopLocationStream implements GeoLocatorEvent {
+  const factory StopLocationStream() = _$StopLocationStreamImpl;
+}
+
+/// @nodoc
+abstract class _$$RecievedLocationImplCopyWith<$Res> {
+  factory _$$RecievedLocationImplCopyWith(_$RecievedLocationImpl value,
+          $Res Function(_$RecievedLocationImpl) then) =
+      __$$RecievedLocationImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({LatLng location});
+}
+
+/// @nodoc
+class __$$RecievedLocationImplCopyWithImpl<$Res>
+    extends _$GeoLocatorEventCopyWithImpl<$Res, _$RecievedLocationImpl>
+    implements _$$RecievedLocationImplCopyWith<$Res> {
+  __$$RecievedLocationImplCopyWithImpl(_$RecievedLocationImpl _value,
+      $Res Function(_$RecievedLocationImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? location = null,
+  }) {
+    return _then(_$RecievedLocationImpl(
+      null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as LatLng,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RecievedLocationImpl implements RecievedLocation {
+  const _$RecievedLocationImpl(this.location);
+
+  @override
+  final LatLng location;
+
+  @override
+  String toString() {
+    return 'GeoLocatorEvent.receivedLocation(location: $location)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RecievedLocationImpl &&
+            (identical(other.location, location) ||
+                other.location == location));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, location);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RecievedLocationImplCopyWith<_$RecievedLocationImpl> get copyWith =>
+      __$$RecievedLocationImplCopyWithImpl<_$RecievedLocationImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() checkLocationEnabled,
+    required TResult Function() checkLocationPermission,
+    required TResult Function() requestLocationPermission,
+    required TResult Function() openLocationSetting,
+    required TResult Function() startLocationStream,
+    required TResult Function() stopLocationStream,
+    required TResult Function(LatLng location) receivedLocation,
+  }) {
+    return receivedLocation(location);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? checkLocationEnabled,
+    TResult? Function()? checkLocationPermission,
+    TResult? Function()? requestLocationPermission,
+    TResult? Function()? openLocationSetting,
+    TResult? Function()? startLocationStream,
+    TResult? Function()? stopLocationStream,
+    TResult? Function(LatLng location)? receivedLocation,
+  }) {
+    return receivedLocation?.call(location);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? checkLocationEnabled,
+    TResult Function()? checkLocationPermission,
+    TResult Function()? requestLocationPermission,
+    TResult Function()? openLocationSetting,
+    TResult Function()? startLocationStream,
+    TResult Function()? stopLocationStream,
+    TResult Function(LatLng location)? receivedLocation,
+    required TResult orElse(),
+  }) {
+    if (receivedLocation != null) {
+      return receivedLocation(location);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CheckLocationEnabledEvent value)
+        checkLocationEnabled,
+    required TResult Function(CheckLocationPermissionEvent value)
+        checkLocationPermission,
+    required TResult Function(RequestLocationPermission value)
+        requestLocationPermission,
+    required TResult Function(OpenLocationSetting value) openLocationSetting,
+    required TResult Function(StartLocationStream value) startLocationStream,
+    required TResult Function(StopLocationStream value) stopLocationStream,
+    required TResult Function(RecievedLocation value) receivedLocation,
+  }) {
+    return receivedLocation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CheckLocationEnabledEvent value)? checkLocationEnabled,
+    TResult? Function(CheckLocationPermissionEvent value)?
+        checkLocationPermission,
+    TResult? Function(RequestLocationPermission value)?
+        requestLocationPermission,
+    TResult? Function(OpenLocationSetting value)? openLocationSetting,
+    TResult? Function(StartLocationStream value)? startLocationStream,
+    TResult? Function(StopLocationStream value)? stopLocationStream,
+    TResult? Function(RecievedLocation value)? receivedLocation,
+  }) {
+    return receivedLocation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CheckLocationEnabledEvent value)? checkLocationEnabled,
+    TResult Function(CheckLocationPermissionEvent value)?
+        checkLocationPermission,
+    TResult Function(RequestLocationPermission value)?
+        requestLocationPermission,
+    TResult Function(OpenLocationSetting value)? openLocationSetting,
+    TResult Function(StartLocationStream value)? startLocationStream,
+    TResult Function(StopLocationStream value)? stopLocationStream,
+    TResult Function(RecievedLocation value)? receivedLocation,
+    required TResult orElse(),
+  }) {
+    if (receivedLocation != null) {
+      return receivedLocation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RecievedLocation implements GeoLocatorEvent {
+  const factory RecievedLocation(final LatLng location) =
+      _$RecievedLocationImpl;
+
+  LatLng get location;
+  @JsonKey(ignore: true)
+  _$$RecievedLocationImplCopyWith<_$RecievedLocationImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$GeoLocatorState {
   bool get isLocationTurnOn => throw _privateConstructorUsedError;
   bool get isPermissionEnabled => throw _privateConstructorUsedError;
+  bool get isStreaming => throw _privateConstructorUsedError;
+  LatLng? get currentLatLng => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $GeoLocatorStateCopyWith<GeoLocatorState> get copyWith =>
@@ -606,7 +1150,11 @@ abstract class $GeoLocatorStateCopyWith<$Res> {
           GeoLocatorState value, $Res Function(GeoLocatorState) then) =
       _$GeoLocatorStateCopyWithImpl<$Res, GeoLocatorState>;
   @useResult
-  $Res call({bool isLocationTurnOn, bool isPermissionEnabled});
+  $Res call(
+      {bool isLocationTurnOn,
+      bool isPermissionEnabled,
+      bool isStreaming,
+      LatLng? currentLatLng});
 }
 
 /// @nodoc
@@ -624,6 +1172,8 @@ class _$GeoLocatorStateCopyWithImpl<$Res, $Val extends GeoLocatorState>
   $Res call({
     Object? isLocationTurnOn = null,
     Object? isPermissionEnabled = null,
+    Object? isStreaming = null,
+    Object? currentLatLng = freezed,
   }) {
     return _then(_value.copyWith(
       isLocationTurnOn: null == isLocationTurnOn
@@ -634,6 +1184,14 @@ class _$GeoLocatorStateCopyWithImpl<$Res, $Val extends GeoLocatorState>
           ? _value.isPermissionEnabled
           : isPermissionEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      isStreaming: null == isStreaming
+          ? _value.isStreaming
+          : isStreaming // ignore: cast_nullable_to_non_nullable
+              as bool,
+      currentLatLng: freezed == currentLatLng
+          ? _value.currentLatLng
+          : currentLatLng // ignore: cast_nullable_to_non_nullable
+              as LatLng?,
     ) as $Val);
   }
 }
@@ -646,7 +1204,11 @@ abstract class _$$GeoLocatorStateImplCopyWith<$Res>
       __$$GeoLocatorStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLocationTurnOn, bool isPermissionEnabled});
+  $Res call(
+      {bool isLocationTurnOn,
+      bool isPermissionEnabled,
+      bool isStreaming,
+      LatLng? currentLatLng});
 }
 
 /// @nodoc
@@ -662,6 +1224,8 @@ class __$$GeoLocatorStateImplCopyWithImpl<$Res>
   $Res call({
     Object? isLocationTurnOn = null,
     Object? isPermissionEnabled = null,
+    Object? isStreaming = null,
+    Object? currentLatLng = freezed,
   }) {
     return _then(_$GeoLocatorStateImpl(
       isLocationTurnOn: null == isLocationTurnOn
@@ -672,6 +1236,14 @@ class __$$GeoLocatorStateImplCopyWithImpl<$Res>
           ? _value.isPermissionEnabled
           : isPermissionEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      isStreaming: null == isStreaming
+          ? _value.isStreaming
+          : isStreaming // ignore: cast_nullable_to_non_nullable
+              as bool,
+      currentLatLng: freezed == currentLatLng
+          ? _value.currentLatLng
+          : currentLatLng // ignore: cast_nullable_to_non_nullable
+              as LatLng?,
     ));
   }
 }
@@ -680,16 +1252,24 @@ class __$$GeoLocatorStateImplCopyWithImpl<$Res>
 
 class _$GeoLocatorStateImpl implements _GeoLocatorState {
   const _$GeoLocatorStateImpl(
-      {required this.isLocationTurnOn, required this.isPermissionEnabled});
+      {required this.isLocationTurnOn,
+      required this.isPermissionEnabled,
+      this.isStreaming = false,
+      this.currentLatLng});
 
   @override
   final bool isLocationTurnOn;
   @override
   final bool isPermissionEnabled;
+  @override
+  @JsonKey()
+  final bool isStreaming;
+  @override
+  final LatLng? currentLatLng;
 
   @override
   String toString() {
-    return 'GeoLocatorState(isLocationTurnOn: $isLocationTurnOn, isPermissionEnabled: $isPermissionEnabled)';
+    return 'GeoLocatorState(isLocationTurnOn: $isLocationTurnOn, isPermissionEnabled: $isPermissionEnabled, isStreaming: $isStreaming, currentLatLng: $currentLatLng)';
   }
 
   @override
@@ -700,12 +1280,16 @@ class _$GeoLocatorStateImpl implements _GeoLocatorState {
             (identical(other.isLocationTurnOn, isLocationTurnOn) ||
                 other.isLocationTurnOn == isLocationTurnOn) &&
             (identical(other.isPermissionEnabled, isPermissionEnabled) ||
-                other.isPermissionEnabled == isPermissionEnabled));
+                other.isPermissionEnabled == isPermissionEnabled) &&
+            (identical(other.isStreaming, isStreaming) ||
+                other.isStreaming == isStreaming) &&
+            (identical(other.currentLatLng, currentLatLng) ||
+                other.currentLatLng == currentLatLng));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, isLocationTurnOn, isPermissionEnabled);
+  int get hashCode => Object.hash(runtimeType, isLocationTurnOn,
+      isPermissionEnabled, isStreaming, currentLatLng);
 
   @JsonKey(ignore: true)
   @override
@@ -718,12 +1302,18 @@ class _$GeoLocatorStateImpl implements _GeoLocatorState {
 abstract class _GeoLocatorState implements GeoLocatorState {
   const factory _GeoLocatorState(
       {required final bool isLocationTurnOn,
-      required final bool isPermissionEnabled}) = _$GeoLocatorStateImpl;
+      required final bool isPermissionEnabled,
+      final bool isStreaming,
+      final LatLng? currentLatLng}) = _$GeoLocatorStateImpl;
 
   @override
   bool get isLocationTurnOn;
   @override
   bool get isPermissionEnabled;
+  @override
+  bool get isStreaming;
+  @override
+  LatLng? get currentLatLng;
   @override
   @JsonKey(ignore: true)
   _$$GeoLocatorStateImplCopyWith<_$GeoLocatorStateImpl> get copyWith =>

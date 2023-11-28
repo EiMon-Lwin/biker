@@ -6,4 +6,7 @@ class GeoLocatorEvent with _$GeoLocatorEvent {
   const factory GeoLocatorEvent.checkLocationPermission() = CheckLocationPermissionEvent;
   const factory GeoLocatorEvent.requestLocationPermission() = RequestLocationPermission;
   const factory GeoLocatorEvent.openLocationSetting() = OpenLocationSetting;
+  const factory GeoLocatorEvent.startLocationStream() = StartLocationStream;
+  const factory GeoLocatorEvent.stopLocationStream() = StopLocationStream;
+  const factory GeoLocatorEvent.receivedLocation(LatLng location) = RecievedLocation;
 }
