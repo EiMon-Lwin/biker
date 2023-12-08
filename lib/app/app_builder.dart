@@ -29,7 +29,7 @@ class AppBuilder {
   final _injector = ServiceLocatorRealAdapter(GetIt.I);
   ServiceLocator get injector => _injector;
 
-  DependencyConfigurationContext developerApplicationContext = DependencyConfigurationContext(
+  final developerApplicationContext = DependencyConfigurationContext(
     isDevEnv: true,
     scheme: ClientConstants.scheme,
     host: ClientConstants.analyticApiHost,
@@ -41,8 +41,8 @@ class AppBuilder {
     merchantOrderHubPath: ClientConstants.merchantOrderHubPath,
     pingAddress: ClientConstants.analyticApiHost,
   );
-  
-  DependencyConfigurationContext releaseApplicationContext = DependencyConfigurationContext(
+
+  final releaseApplicationContext = DependencyConfigurationContext(
     isDevEnv: false,
     scheme: ClientConstants.scheme,
     host: ClientConstants.host,
@@ -55,7 +55,8 @@ class AppBuilder {
     pingAddress: ClientConstants.host,
   );
 
-  DependencyConfigurationContext provideConfigurationContext(Environment environment) {
+  DependencyConfigurationContext provideConfigurationContext(
+      Environment environment) {
     switch (environment) {
       case Environment.dev:
         return developerApplicationContext;
@@ -115,24 +116,55 @@ class AppBuilder {
   Future<void> initialize(Environment environment) async {
     _rootNavigationKey = GlobalKey<NavigatorState>();
     _primaryScaffoldKey = GlobalKey<ScaffoldState>();
-    
+
+    //Registering application's injector
     registerInjector(injector);
+
+    //Avoiding async 
     final prefs = await SharedPreferences.getInstance();
     injector.registerSingleton(prefs);
-    
+
     _dataModules = provideDataModules(environment)
-      ..provideSmsRepository()
+      ..provideDialogApi()
+      ..provideEnvJar()
       ..provideLocalStorage()
       ..provideLocalizationApi()
-      ..provideDialogApi()
-      ..provideValidatorApi();
+      ..provideMyanmarPhoneNumberValidator()
+      ..provideResourceSrings()
+      ..provideSecureLocalStroage()
+      ..provideTokenJar()
+      ..provideValidatorApi()
+      ..provideClient()
+      ..provideImagePicker()
+      ..provideFormatterApi()
+      ..provideNetworkClient();
+    
+    
+    _appModule = provideAppModules(environment);
+    configureModules(environment);
+    
+    _appModule
+      ..provideAppStateBloc()
+      ..provideRouterService()
+      ..provideAppState();
+  }
 
-    _appModule = provideAppModules(environment)
-      ..provideAuthenticationBloc()
-      ..provideBikerInfoBloc()
-      ..provideGeoLocatorBloc()
-      ..provideOrderBloc()
-      ..provideScheduleBloc()
-      ..provideRouterService();
+  void configureModules(Environment environment) {
+    final modules = [
+      _appModule.provideScheduleModule(),
+      _appModule.provideAuthenticationModule(),
+      _appModule.provideSmsModule(),
+      _appModule.provideBikerInfoModule(),
+      _appModule.provideGeoLocatorModule(),
+      _appModule.provideNotificationModule(),
+      _appModule.provideOrderModule(),
+    ];
+
+    for (final configurator in modules) {
+      configurator.configureDependencies(
+        provideConfigurationContext(environment),
+        injector,
+      );
+    }
   }
 }

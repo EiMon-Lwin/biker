@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
             if (state is BikerInfoReady) {
               return HomePageReady(
                 userName: state.bikerInfo.fullName,
-                isCheckedIn: bikerInfoBloc is BikerInfoReady,
+                isCheckedIn: state.isCheckedIn,
                 onCheckInButtonPressed: () {
                   homePageBloc.add(HomePageEvent.checkInButtonPress(
                     onNavigateToCheckInPage: widget.navigateToCheckInPage

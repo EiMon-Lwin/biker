@@ -1,14 +1,18 @@
 import 'package:app_state_notifier/app_state_notifier.dart';
 import 'package:biker/src/presentation/presentation.dart';
-import 'package:biker/src/presentation/schedule/pages/schedule_page.dart';
+import 'package:biker/src/presentation/schedule/schedules/schedule_page.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../presentation/schedule/check_in/check_in_page.dart';
 
 class RouterService {
   final bool isDevEnv;
   final AppStateNotifier appState;
+  final GlobalKey<NavigatorState> rootNavigationKey;
 
   RouterService(
+    this.rootNavigationKey,
     this.appState, {
     this.isDevEnv = true,
   });
@@ -42,11 +46,9 @@ class RouterService {
   // static const String EarningHistoryPage = "/earninghistory";
   // static const String LocationPermissionPage = "/locationpermisson";
 
-  late final parentNavigationKey = GlobalKey<NavigatorState>();
-
   late final routerConfig = GoRouter(
     redirectLimit: 8,
-    navigatorKey: parentNavigationKey,
+    navigatorKey: rootNavigationKey,
     refreshListenable: appState,
     initialLocation: isDevEnv ? ApiConfigPage.routePath : SplashPage.routePath,
     redirect: (context, state) {
@@ -135,9 +137,16 @@ class RouterService {
         path: HomePage.routePath,
         builder: (context, state) {
           return HomePage(
-            navigateToCheckInPage: () => context.goNamed(SchedulesPage.routeName),
+            navigateToCheckInPage: () => context.pushNamed(CheckInPage.routeName),
           );
         },
+      ),
+      GoRoute(
+        name: CheckInPage.routeName,
+        path: CheckInPage.routePath,
+        builder: (context, state) {
+          return const CheckInPage();
+        }
       ),
       GoRoute(
         name: LocationPermissionPage.routeName,

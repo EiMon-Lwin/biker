@@ -12,63 +12,65 @@ dependencies:
   flutter:
     sdk: flutter
   core:
-    path: ./modules/core
+    path: ./packages/core
   domain:
-    path: ./modules/domain
+    path: ./packages/domain
   dialog_api:
-    path: ./modules/dialog_api
+    path: ./packages/dialog_api
   formatter_api:
-    path: ./modules/formatter_api
+    path: ./packages/formatter_api
   network_client:
-    path: ./modules/network_client
+    path: ./packages/network_client
   network_client_real_adapter:
-    path: ./modules/network_client/network_client_real_adapter
+    path: ./packages/network_client/network_client_real_adapter
   authentication:
-    path: ./modules/authentication
+    path: ./packages/authentication
   biker_info:
-    path: ./modules/biker_info
+    path: ./packages/biker_info
   geo_locator:
-    path: ./modules/geo_locator
+    path: ./packages/geo_locator
   geo_locator_api:
-    path: ./modules/geo_locator_api
+    path: ./packages/geo_locator_api
   local_storage:
-    path: ./modules/local_storage
+    path: ./packages/local_storage
   localization_api:
-    path: ./modules/localization_api
+    path: ./packages/localization_api
   notification:
-    path: ./modules/notification
+    path: ./packages/notification
   order:
-    path: ./modules/order
+    path: ./packages/order
   resource_strings:
-    path: ./modules/resource_strings
+    path: ./packages/resource_strings
   schedule:
-    path: ./modules/schedule
+    path: ./packages/schedule
   secure_local_storage:
-    path: ./modules/secure_local_storage
+    path: ./packages/secure_local_storage
   service_locator:
-    path: ./modules/service_locator
+    path: ./packages/service_locator
   shared_dependencies:
-    path: ./modules/shared_dependencies
+    path: ./packages/shared_dependencies
   sms:
-    path: ./modules/sms
+    path: ./packages/sms
   env_jar:
-    path: ./modules/env_jar
+    path: ./packages/env_jar
+  image_picker_api:
+    path: ./packages/image_picker_api
   token_jar:
-    path: ./modules/token_jar
+    path: ./packages/token_jar
   ui_kit:
-    path: ./modules/ui_kit
+    path: ./packages/ui_kit
   validator_api:
-    path: ./modules/validator_api
+    path: ./packages/validator_api
   mm_phone_number_validator:
-    path: ./modules/mm_phone_number_validator
+    path: ./packages/mm_phone_number_validator
   app_state:
-    path: ./modules/app_state
+    path: ./packages/app_state
   app_state_notifier:
-    path: ./modules/app_state_notifier
+    path: ./packages/app_state_notifier
   resend_pin_button:
-    path: ./modules/resend_pin_button
+    path: ./packages/resend_pin_button
   extensions:
-    path: ./modules/extensions
+    path: ./packages/extensions
   
 
   cupertino_icons: ^1.0.2
@@ -106,6 +108,10 @@ dependencies:
   flutter_secure_storage: ^9.0.0
   flutter_bloc: ^8.1.3
   flutter_shake_animated: ^0.0.5
+  bouncing_widget: ^2.0.0
+  flutter_map: ^4.0.0
+  bloc_concurrency: ^0.2.2
+  latlong2: ^0.8.2
 
 dev_dependencies:
   flutter_test:

@@ -5,7 +5,7 @@ import 'package:biker/src/presentation/commons/widgets/botton_navigation_wrapper
 import 'package:biker/src/presentation/commons/widgets/general_button.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:geo_locator/bloc/geo_locator_bloc.dart';
+import 'package:geo_locator/geo_locator.dart';
 import 'package:get/get.dart';
 import 'package:localization_api/localization_api.dart';
 import 'package:resource_strings/resource_strings.dart';

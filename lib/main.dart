@@ -14,15 +14,14 @@ Future<void> main(List<String> args) async {
   await appBuilder.initialize(Environment.dev);
 
   final localeService = inject<LocalizationApi>();
-  runApp(
-    EasyLocalization(
-      path: 'assets/translations',
-      startLocale: (await localeService.startLocale).locale,
-      supportedLocales: localeService.supportedLocales,
-      fallbackLocale: localeService.defaultLocale.locale,
-      child: const MyApp(),
-    ),
-  );
+
+  runApp(EasyLocalization(
+    path: 'assets/translations',
+    startLocale: (await localeService.startLocale).locale,
+    supportedLocales: localeService.supportedLocales,
+    fallbackLocale: localeService.defaultLocale.locale,
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -41,10 +40,11 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       routerDelegate: routerService.routerConfig.routerDelegate,
       routeInformationParser: routerService.routerConfig.routeInformationParser,
-      routeInformationProvider: routerService.routerConfig.routeInformationProvider,
+      routeInformationProvider:
+          routerService.routerConfig.routeInformationProvider,
     );
   }
 }
 
 
-// dart run easy_localization:generate -S assets/translations -f keys -O lib -o ../modules/resource_strings/lib/locale_keys.g.dart
+// dart run easy_localization:generate -S assets/translations -f keys -O lib -o ../package/resource_strings/lib/locale_keys.g.dart

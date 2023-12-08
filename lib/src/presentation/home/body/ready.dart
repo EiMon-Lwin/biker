@@ -2,9 +2,9 @@ import 'package:biker/src/utils/context_extension.dart';
 import 'package:flutter/material.dart';
 
 import '../../drawer/drawer.dart';
-import '../../check_in/widgets/check_in_widget.dart';
 import '../../orders/pages/orders_page.dart';
-import '../../schedule/pages/schedule_page.dart';
+import '../../schedule/check_in/widgets/check_in_widget.dart';
+import '../../schedule/schedules/schedule_page.dart';
 import '../widgets/check_in_button.dart';
 
 class HomePageReady extends StatefulWidget {
